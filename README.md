@@ -4,7 +4,7 @@ A biggest problem when someone getting into Flutter development was figuring out
 
 Native Android development splits UI code and Logic code between XML files and Java (or Kotlin) files respectively, but with Flutter it can all become a jumbled mess if you’re not careful. After working with Flutter for almost two years, this has been written as a simple guide to architecture your app in the best way possible for future refactoring and readability.
 
-Check sample projects with (https://fluttersamples.com/)[fluttersamples]
+Check sample projects with [fluttersamples](https://fluttersamples.com/)
 
 ## The main.dart
 The foundation of any Flutter app, the main.dart file, should hold very little code and only serve as an overview to an app.
