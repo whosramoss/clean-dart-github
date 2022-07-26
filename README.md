@@ -1,4 +1,4 @@
-# Flutter Code Structs
+# Flutter State Management Structs
 
 A biggest problem when someone getting into Flutter development was figuring out how to manage code. 
 
