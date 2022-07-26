@@ -1,4 +1,4 @@
-# Flutter: Code Organization
+# Flutter Code Structs
 
 A biggest problem when someone getting into Flutter development was figuring out how to manage code. 
 
@@ -6,7 +6,9 @@ Native Android development splits UI code and Logic code between XML files and J
 
 Check sample projects with [fluttersamples](https://fluttersamples.com/)
 
-## The main.dart
+## Bloc 
+
+### The main.dart
 The foundation of any Flutter app, the main.dart file, should hold very little code and only serve as an overview to an app.
 The widget being run by the runApp function should be a StatelessWidget, and the widget itself should be no more complicated than a simple MaterialApp/CupertinoApp/WidgetsApp wrapped in a BlocProviderTree.
 The MaterialApp itself should have no heavy code in it, instead importing the theme, routes, etc. from other files.
@@ -56,14 +58,19 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
 };
 ```
 
-## Sub Folders
-* The ```theme``` folder just contains a style.dart with the app theme which is accessed in the main.dart file
-* The ```services``` folder holds some web APIs and native interaction code
-* The ```components``` folder has custom widgets which are used by multiple different screens
-* The ```models``` folder contains files each with a custom class of an object widely used throughout the app
-* The ```bloc``` folder holds an abstract class in bloc.dart as well as bloc-prov.dart and a bloc-prov-tree.dart both of which are based off of code found here
-* The ```blocs``` folder is pretty straightforward, holding multiple general bloc files (all of which extend the abstract Bloc class mentioned above) and a blocs.dart which acts as a single file exporting all the folder’s blocs (I used this video to learn how to structure the bloc files).
+## Folders
 
-<img src="./01.png"  /> 
+```dart
+📁 lib
+- 📝 main.dart
+- 📝 routes.dart
+- 📁 components // has custom widgets which are used by multiple different screens
+- 📁 models     // contains files each with a custom class of an object widely used throughout the app
+- 📁 screens
+- 📁 services   // holds some web APIs and native interaction code
+- 📁 themes     // just contains a style.dart with the app theme which is accessed in the main.dart file
+- 📁 blocs      // is pretty straightforward, holding multiple general bloc files (all of which extend the abstract Bloc class mentioned above) and a blocs.dart which acts as a single file exporting all the folder’s blocs (I used this video to learn how to structure the bloc files).
+- 📁 bloc       // holds an abstract class in bloc.dart as well as bloc-prov.dart and a bloc-prov-tree.dart both of which are based off of code found here
+```
 
 The screens folder holds many different folders, each of which corresponds to a different screen of the app. Each screen folder holds three things: a primary screen file which serves to organize each component, a BLoC file that is only used for that screen, and a “components” folder that holds each component file used by the screen. Any section of a screen more complicated then a few widgets should be its own component, and some very complex components may even require their own BLoC file and components as a screen does.
