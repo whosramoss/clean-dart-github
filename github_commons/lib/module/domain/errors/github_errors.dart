@@ -1,4 +1,4 @@
-import '../../../shared/connection/base_error.dart';
+import '../../../shared/utils/connection/base_error.dart';
 
 class GithubError extends BaseError {
   GithubError({

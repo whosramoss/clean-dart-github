@@ -1,6 +1,6 @@
 import '../../../module/infra/models/github_repository_model.dart';
 import '../../../module/infra/models/github_profile_model.dart';
-import '../../../shared/connection/dio_http_connection.dart';
+import '../../../shared/utils/connection/dio_http_connection.dart';
 import '../../infra/datasources/i_github_datasource.dart';
 
 class GithubDatasource implements IGithubDatasource {

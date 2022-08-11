@@ -4,6 +4,7 @@ import 'package:github_commons/shared/components/github_repository_widget.dart';
 
 import '../../module/domain/entities/github_language_entity.dart';
 import '../../module/domain/entities/github_profile_entity.dart';
+import 'github_background_widget.dart';
 import 'github_language_widget.dart';
 import 'github_profile_widget.dart';
 import 'github_tabs_widget.dart';
@@ -22,6 +23,7 @@ class GithubBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return GithubBackgroundWidget(
     return NestedScrollView(
       headerSliverBuilder: (_, value) => [
         GithubProfileWidget(profile: profile),
@@ -47,6 +49,7 @@ class GithubBodyWidget extends StatelessWidget {
           },
         ),
       ),
+      //),
     );
   }
 }

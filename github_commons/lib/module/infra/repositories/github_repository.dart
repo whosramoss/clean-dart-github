@@ -1,7 +1,7 @@
 import 'package:github_commons/module/domain/errors/github_errors.dart';
 import 'package:github_commons/module/infra/datasources/i_github_datasource.dart';
-import 'package:github_commons/shared/connection/base_error.dart';
 
+import '../../../shared/utils/connection/base_error.dart';
 import '../../domain/entities/github_repository_entity.dart';
 import '../../domain/entities/github_profile_entity.dart';
 import '../../domain/repositories/i_github_repository.dart';
