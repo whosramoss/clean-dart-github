@@ -25,14 +25,4 @@ class GithubDatasource implements IGithubDatasource {
 
     return data.map((v) => GithubRepositoryModel.fromJson(v));
   }
-
-  @override
-  Future<List<GithubRepositoryModel>> findStarredRepositories(
-      String username) async {
-    var response = await _http.get('users/$username/starred');
-
-    final data = response.data;
-
-    return data.map((v) => GithubRepositoryModel.fromJson(v));
-  }
 }

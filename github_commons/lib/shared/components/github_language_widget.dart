@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:github_commons/shared/components/github_item_widget.dart';
 
-class GithubStatsLanguageWidget extends StatelessWidget {
-  final String language;
-  final String link;
-  final double percent;
-  final double count;
+import '../../module/domain/entities/github_language_entity.dart';
 
-  const GithubStatsLanguageWidget({
+class GithubLanguageWidget extends StatelessWidget {
+  final GithubLanguageEntity lang;
+  const GithubLanguageWidget({
     Key? key,
-    required this.language,
-    required this.link,
-    required this.percent,
-    required this.count,
+    required this.lang,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      leading: CircleAvatar(
-        backgroundImage: AssetImage('assets/image/me.jpeg'),
-      ),
+    return GithubItemWidget(
+      leading: CircleAvatar(child: Image.network(lang.icon)),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,7 +21,7 @@ class GithubStatsLanguageWidget extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  language,
+                  lang.name,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -38,7 +31,7 @@ class GithubStatsLanguageWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Text(
-                      ' • $percent% • $count projects',
+                      '${lang.average}%, used in ${lang.total} projects',
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: const TextStyle(

@@ -20,7 +20,7 @@ class GithubProfileModel {
   @JsonKey(name: 'company', defaultValue: '')
   final String company;
 
-  @JsonKey(name: 'username', defaultValue: '')
+  @JsonKey(name: 'login', defaultValue: '')
   final String username;
 
   @JsonKey(name: 'avatarUrl', defaultValue: '')

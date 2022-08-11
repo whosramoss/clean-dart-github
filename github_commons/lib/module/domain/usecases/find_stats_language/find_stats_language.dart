@@ -10,23 +10,27 @@ class FindStatsLanguage implements IFindStatsLanguage {
 
     repositories.map((e) => languages.add(e.language)).toList();
 
-    languages.map((name) {
-      var value = GithubLanguageEntity(
-        name: name,
-        icon: _getIcon(name),
-        average: _getTotal(languages, name) / languages.length,
-        total: _getTotal(languages, name),
-      );
+    for (var name in languages) {
+      var icon = _getIcon(name);
+      var total = _getTotal(languages, name);
+      var average = total / languages.length;
 
-      lst.add(value);
-    }).toList();
+      lst.add(GithubLanguageEntity(
+        name: name,
+        icon: icon,
+        average: average,
+        total: total,
+      ));
+    }
 
     return lst;
   }
 
-  String _getIcon(String name) =>
-      'https://raw.githubusercontent.com/devicons/devicon/master/icons/$name/$name-original.svg';
+  String _getIcon(String name) {
+    return 'https://raw.githubusercontent.com/devicons/devicon/master/icons/$name/$name-original.svg';
+  }
 
-  int _getTotal(List<String> languages, String name) =>
-      languages.where((lName) => lName == name).toList().length;
+  int _getTotal(List<String> languages, String name) {
+    return languages.where((lName) => lName == name).toList().length;
+  }
 }

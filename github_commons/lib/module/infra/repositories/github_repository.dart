@@ -34,17 +34,4 @@ class GithubRepository implements IGithubRepository {
       throw GithubDatasourceError(stackTrace: stackTrace, exception: error);
     }
   }
-
-  @override
-  Future<List<GithubRepositoryEntity>> findStarredRepositories(
-      String username) async {
-    try {
-      var value = await _datasource.findStarredRepositories(username);
-      return value.map((v) => v.toEntity()).toList();
-    } on BaseError catch (_) {
-      rethrow;
-    } catch (error, stackTrace) {
-      throw GithubDatasourceError(stackTrace: stackTrace, exception: error);
-    }
-  }
 }
