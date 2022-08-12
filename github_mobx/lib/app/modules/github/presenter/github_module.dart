@@ -27,7 +27,7 @@ class GithubModule extends Module {
       child: (_, args) => const GithubRegisterPage(),
     ),
     ChildRoute(
-      Paths.home,
+      Paths.profile,
       transition: TransitionType.noTransition,
       child: (_, args) => const GithubProfilePage(),
     ),

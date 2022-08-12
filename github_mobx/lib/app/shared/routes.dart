@@ -1,11 +1,11 @@
 abstract class Routes {
   Routes._();
 
-  static const home = '${Paths.home}/';
+  static const profile = '${Paths.profile}/';
 }
 
 abstract class Paths {
   Paths._();
 
-  static const home = '/home';
+  static const profile = '/profile';
 }

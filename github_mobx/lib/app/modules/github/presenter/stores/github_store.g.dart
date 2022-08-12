@@ -105,6 +105,14 @@ mixin _$GithubStore on GithubStoreBase, Store {
     });
   }
 
+  late final _$setGithubDataAsyncAction =
+      AsyncAction('GithubStoreBase.setGithubData', context: context);
+
+  @override
+  Future<void> setGithubData() {
+    return _$setGithubDataAsyncAction.run(() => super.setGithubData());
+  }
+
   late final _$GithubStoreBaseActionController =
       ActionController(name: 'GithubStoreBase', context: context);
 
@@ -136,39 +144,6 @@ mixin _$GithubStore on GithubStoreBase, Store {
         name: 'GithubStoreBase.setUsername');
     try {
       return super.setUsername(value);
-    } finally {
-      _$GithubStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void setProfile(GithubProfileEntity value) {
-    final _$actionInfo = _$GithubStoreBaseActionController.startAction(
-        name: 'GithubStoreBase.setProfile');
-    try {
-      return super.setProfile(value);
-    } finally {
-      _$GithubStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void setLstRepositories(List<GithubRepositoryEntity> value) {
-    final _$actionInfo = _$GithubStoreBaseActionController.startAction(
-        name: 'GithubStoreBase.setLstRepositories');
-    try {
-      return super.setLstRepositories(value);
-    } finally {
-      _$GithubStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void setLstLanguages(List<GithubLanguageEntity> value) {
-    final _$actionInfo = _$GithubStoreBaseActionController.startAction(
-        name: 'GithubStoreBase.setLstLanguages');
-    try {
-      return super.setLstLanguages(value);
     } finally {
       _$GithubStoreBaseActionController.endAction(_$actionInfo);
     }

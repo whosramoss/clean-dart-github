@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:github_commons/main.dart';
+import 'package:github_mobx/app/shared/routes.dart';
 
 part 'github_store.g.dart';
 
@@ -53,30 +54,18 @@ abstract class GithubStoreBase with Store {
   void setUsername(String value) => _username = value;
 
   @action
-  void setProfile(GithubProfileEntity value) => _profile = value;
-
-  @action
-  void setLstRepositories(List<GithubRepositoryEntity> value) =>
-      _lstRepositories = value;
-
-  @action
-  void setLstLanguages(List<GithubLanguageEntity> value) =>
-      _lstLanguages = value;
+  Future<void> setGithubData() async {
+    _profile = await _findProfile.call(username);
+    _lstRepositories = await _findRepositories.call(username);
+    _lstLanguages = _findStatsLanguage.call(lstRepositories);
+  }
 
   Future<void> getGithubData() async {
     try {
       setError(null);
       setLoading(true);
-
-      var profile = await _findProfile.call(username);
-      setProfile(profile);
-      debugPrint('profile setted');
-      var repositories = await _findRepositories.call(username);
-      setLstRepositories(repositories);
-      debugPrint('repositories setted');
-      var languages = _findStatsLanguage.call(repositories);
-      setLstLanguages(languages);
-      debugPrint('languages setted');
+      await setGithubData();
+      openProfilePage();
     } on BaseError catch (error) {
       debugPrint(error.toString());
       setError(error);
@@ -87,5 +76,9 @@ abstract class GithubStoreBase with Store {
 
   Future<void> openUrl(String link) async {
     await _urlOpen.launchUrl(link);
+  }
+
+  void openProfilePage() {
+    Modular.to.pushNamed(Routes.profile);
   }
 }
