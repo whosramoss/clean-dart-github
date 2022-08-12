@@ -15,7 +15,11 @@ class GithubBackgroundWidget extends StatelessWidget {
       SizedBox(
         width: double.maxFinite,
         height: double.maxFinite,
-        child: Image.asset('assets/images/bg.jpeg', fit: BoxFit.cover),
+        child: Image.asset(
+          'assets/images/bg.jpeg',
+          fit: BoxFit.cover,
+          package: 'github_commons',
+        ),
       ),
       Center(
         child: BackdropFilter(

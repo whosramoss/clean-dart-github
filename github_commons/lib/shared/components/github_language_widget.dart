@@ -13,7 +13,10 @@ class GithubLanguageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GithubItemWidget(
-      leading: CircleAvatar(child: Image.network(lang.icon)),
+      leading: CircleAvatar(
+        backgroundColor: Colors.transparent,
+        backgroundImage: NetworkImage(lang.icon),
+      ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

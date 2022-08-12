@@ -4,17 +4,16 @@ import 'package:github_commons/shared/components/github_repository_widget.dart';
 
 import '../../module/domain/entities/github_language_entity.dart';
 import '../../module/domain/entities/github_profile_entity.dart';
-import 'github_background_widget.dart';
 import 'github_language_widget.dart';
 import 'github_profile_widget.dart';
 import 'github_tabs_widget.dart';
 
-class GithubBodyWidget extends StatelessWidget {
+class GithubProfileBodyWidget extends StatelessWidget {
   final GithubProfileEntity profile;
   final List<GithubLanguageEntity> lstLanguages;
   final List<GithubRepositoryEntity> lstRepositories;
 
-  const GithubBodyWidget({
+  const GithubProfileBodyWidget({
     Key? key,
     required this.profile,
     required this.lstLanguages,
