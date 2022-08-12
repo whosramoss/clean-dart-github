@@ -18,6 +18,7 @@ class DioHttpConnection implements IDioHttpConnection {
       baseUrl: 'https://api.github.com/',
       receiveTimeout: const Duration(seconds: 30).inMilliseconds,
     );
+    _dio.interceptors.add(ErrorInterceptor());
   }
 
   @override

@@ -12,7 +12,7 @@ class GithubDatasource implements IGithubDatasource {
   Future<GithubProfileModel> findProfile(String username) async {
     var response = await _http.get('users/$username');
 
-    final data = response.data;
+    dynamic data = response.data;
 
     return GithubProfileModel.fromJson(data);
   }
@@ -21,8 +21,8 @@ class GithubDatasource implements IGithubDatasource {
   Future<List<GithubRepositoryModel>> findRepositories(String username) async {
     var response = await _http.get('users/$username/repos');
 
-    final data = response.data;
+    List<dynamic> data = response.data;
 
-    return data.map((v) => GithubRepositoryModel.fromJson(v));
+    return data.map((v) => GithubRepositoryModel.fromJson(v)).toList();
   }
 }

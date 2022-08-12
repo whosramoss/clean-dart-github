@@ -10,7 +10,7 @@ class GithubProfileEntity {
   final String email;
   final String bio;
   final String twitterUsername;
-  final String publicRepos;
+  final int publicRepos;
   final int followers;
   final int following;
   final String? createdAt;
@@ -28,7 +28,7 @@ class GithubProfileEntity {
     this.email = '',
     this.bio = '',
     this.twitterUsername = '',
-    this.publicRepos = '',
+    this.publicRepos = 0,
     this.followers = 0,
     this.following = 0,
     this.createdAt,

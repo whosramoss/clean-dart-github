@@ -23,7 +23,7 @@ class GithubProfileModel {
   @JsonKey(name: 'login', defaultValue: '')
   final String username;
 
-  @JsonKey(name: 'avatarUrl', defaultValue: '')
+  @JsonKey(name: 'avatar_url', defaultValue: '')
   final String avatarUrl;
 
   @JsonKey(name: 'blog', defaultValue: '')
@@ -38,11 +38,11 @@ class GithubProfileModel {
   @JsonKey(name: 'twitter_username', defaultValue: '')
   final String twitterUsername;
 
-  @JsonKey(name: 'public_repos', defaultValue: '')
-  final String publicRepos;
-
   @JsonKey(name: 'bio', defaultValue: '')
   final String bio;
+
+  @JsonKey(name: 'public_repos', defaultValue: 0)
+  final int publicRepos;
 
   @JsonKey(name: 'following', defaultValue: 0)
   final int following;

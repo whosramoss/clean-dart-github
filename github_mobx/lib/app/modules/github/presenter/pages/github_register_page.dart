@@ -17,7 +17,7 @@ class _GithubRegisterPageState extends State<GithubRegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Observer(builder: (context) {
+      body: Observer(builder: (_) {
         return GithubRegisterBodyWidget(
           textUsername: _store.username,
           textError: _store.error?.errorMessage,
