@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
 import 'package:github_mobx/app/shared/routes.dart';
 
@@ -27,7 +28,7 @@ class GithubModule extends Module {
       child: (_, args) => const GithubRegisterPage(),
     ),
     ChildRoute(
-      Paths.profile,
+      Routes.profile,
       transition: TransitionType.noTransition,
       child: (_, args) => const GithubProfilePage(),
     ),

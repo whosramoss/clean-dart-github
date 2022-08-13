@@ -1,0 +1,4 @@
+enum GithubTypeListEnum {
+  repositories,
+  statistics,
+}

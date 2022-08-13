@@ -54,17 +54,15 @@ abstract class GithubStoreBase with Store {
   void setUsername(String value) => _username = value;
 
   @action
-  Future<void> setGithubData() async {
-    _profile = await _findProfile.call(username);
-    _lstRepositories = await _findRepositories.call(username);
-    _lstLanguages = _findStatsLanguage.call(lstRepositories);
-  }
-
   Future<void> getGithubData() async {
     try {
       setError(null);
       setLoading(true);
-      await setGithubData();
+
+      _profile = await _findProfile(username);
+      _lstRepositories = await _findRepositories(username);
+      _lstLanguages = _findStatsLanguage(lstRepositories);
+
       openProfilePage();
     } on BaseError catch (error) {
       debugPrint(error.toString());

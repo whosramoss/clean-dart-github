@@ -1,32 +1,58 @@
 import 'package:flutter/material.dart';
 
+import '../theme/github_theme.dart';
+
 class GithubItemWidget extends StatelessWidget {
-  final Widget title;
-  final Widget? subtitle;
-  final Widget? leading;
+  final String title;
+  final String subtitle;
+  final String? icon;
 
   const GithubItemWidget({
     Key? key,
     required this.title,
-    this.subtitle,
-    this.leading,
+    required this.subtitle,
+    this.icon,
   }) : super(key: key);
+
+  Widget? _buildIcon() {
+    if (icon == null) return null;
+
+    return CircleAvatar(
+      backgroundColor: Colors.transparent,
+      backgroundImage: NetworkImage(icon!),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.06),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: ListTile(
-        leading: leading,
-        title: title,
-        subtitle: subtitle,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          color: GithubTheme.secondColor.withOpacity(0.06),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: ListTile(
+          leading: _buildIcon(),
+          title: Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+            softWrap: false,
+            style: GithubTheme.simpleStyleText.copyWith(fontSize: 14),
+          ),
+          subtitle: Text(
+            subtitle.isEmpty ? 'Empty Description' : subtitle,
+            overflow: TextOverflow.ellipsis,
+            softWrap: false,
+            style: GithubTheme.simpleStyleText.copyWith(
+              fontSize: 14,
+              color: GithubTheme.secondColor.withOpacity(.5),
+            ),
+          ),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10,
+          ),
         ),
       ),
     );

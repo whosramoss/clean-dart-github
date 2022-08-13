@@ -11,6 +11,7 @@ GithubRepositoryModel _$GithubRepositoryModelFromJson(
     GithubRepositoryModel(
       id: json['id'] as int? ?? 0,
       nodeId: json['node_id'] as String? ?? '',
+      name: json['name'] as String? ?? '',
       fullName: json['full_name'] as String? ?? '',
       htmlUrl: json['html_url'] as String? ?? '',
       fork: json['fork'] as bool? ?? false,
@@ -30,6 +31,7 @@ Map<String, dynamic> _$GithubRepositoryModelToJson(
     <String, dynamic>{
       'id': instance.id,
       'node_id': instance.nodeId,
+      'name': instance.name,
       'full_name': instance.fullName,
       'html_url': instance.htmlUrl,
       'fork': instance.fork,

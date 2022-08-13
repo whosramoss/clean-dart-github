@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../theme/github_theme.dart';
+
 class GithubBackgroundWidget extends StatelessWidget {
   final Widget child;
   const GithubBackgroundWidget({
@@ -12,20 +14,10 @@ class GithubBackgroundWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      SizedBox(
+      Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        child: Image.asset(
-          'assets/images/bg.jpeg',
-          fit: BoxFit.cover,
-          package: 'github_commons',
-        ),
-      ),
-      Center(
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 30.0, sigmaY: 30.0),
-          child: Container(alignment: Alignment.center),
-        ),
+        color: GithubTheme.primaryColor,
       ),
       child,
     ]);

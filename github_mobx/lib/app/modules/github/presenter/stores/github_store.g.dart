@@ -105,12 +105,12 @@ mixin _$GithubStore on GithubStoreBase, Store {
     });
   }
 
-  late final _$setGithubDataAsyncAction =
-      AsyncAction('GithubStoreBase.setGithubData', context: context);
+  late final _$getGithubDataAsyncAction =
+      AsyncAction('GithubStoreBase.getGithubData', context: context);
 
   @override
-  Future<void> setGithubData() {
-    return _$setGithubDataAsyncAction.run(() => super.setGithubData());
+  Future<void> getGithubData() {
+    return _$getGithubDataAsyncAction.run(() => super.getGithubData());
   }
 
   late final _$GithubStoreBaseActionController =

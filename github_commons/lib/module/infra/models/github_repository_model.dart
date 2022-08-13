@@ -13,6 +13,9 @@ class GithubRepositoryModel {
   @JsonKey(name: 'node_id', defaultValue: '')
   final String nodeId;
 
+  @JsonKey(name: 'name', defaultValue: '')
+  final String name;
+
   @JsonKey(name: 'full_name', defaultValue: '')
   final String fullName;
 
@@ -43,6 +46,7 @@ class GithubRepositoryModel {
   const GithubRepositoryModel({
     required this.id,
     required this.nodeId,
+    required this.name,
     required this.fullName,
     required this.htmlUrl,
     required this.fork,
@@ -58,6 +62,7 @@ class GithubRepositoryModel {
     return GithubRepositoryModel(
       id: value.id,
       nodeId: value.nodeId,
+      name: value.name,
       fullName: value.fullName,
       htmlUrl: value.htmlUrl,
       fork: value.fork,
@@ -74,6 +79,7 @@ class GithubRepositoryModel {
     return GithubRepositoryEntity(
       id: id,
       nodeId: nodeId,
+      name: name,
       fullName: fullName,
       htmlUrl: htmlUrl,
       fork: fork,

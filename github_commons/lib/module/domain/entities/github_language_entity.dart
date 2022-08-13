@@ -1,20 +1,20 @@
 class GithubLanguageEntity {
   final String name;
   final String icon;
-  final double average;
+  final String average;
   final int total;
 
   const GithubLanguageEntity({
     this.name = '',
     this.icon = '',
-    this.average = 0.0,
+    this.average = '',
     this.total = 0,
   });
 
   bool get isValid => name.isNotEmpty;
 
   GithubLanguageEntity copyWith(
-      {String? name, String? icon, double? average, int? total}) {
+      {String? name, String? icon, String? average, int? total}) {
     return GithubLanguageEntity(
       name: name ?? this.name,
       icon: icon ?? this.icon,

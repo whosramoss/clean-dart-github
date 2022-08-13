@@ -15,7 +15,6 @@ class AppWidget extends StatelessWidget {
     return MaterialApp.router(
       title: 'Github',
       debugShowCheckedModeBanner: false,
-      theme: GithubTheme.theme,
       themeMode: ThemeMode.light,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

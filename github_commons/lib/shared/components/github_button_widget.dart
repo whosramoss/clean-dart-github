@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_commons/shared/theme/github_theme.dart';
 
 class GithubButtonWidget extends StatefulWidget {
   final String title;
@@ -25,8 +26,8 @@ class _GithubButtonWidgetState extends State<GithubButtonWidget> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(500),
         color: widget.onPressed != null
-            ? Colors.white
-            : Colors.white.withOpacity(.2),
+            ? GithubTheme.secondColor
+            : GithubTheme.secondColor.withOpacity(.2),
       ),
       child: ElevatedButton(
         onPressed: widget.isLoading ? null : widget.onPressed,
@@ -47,7 +48,7 @@ class _GithubButtonWidgetState extends State<GithubButtonWidget> {
             }
 
             if (states.contains(MaterialState.pressed)) {
-              return Colors.white.withOpacity(.5);
+              return GithubTheme.secondColor.withOpacity(.5);
             }
 
             return Colors.transparent;
@@ -65,6 +66,8 @@ class _GithubButtonWidgetState extends State<GithubButtonWidget> {
             : Text(
                 widget.title,
                 style: const TextStyle(
+                  fontFamily: GithubTheme.fontFamilyName,
+                  package: GithubTheme.themeName,
                   color: Colors.grey,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

@@ -34,7 +34,6 @@ class GithubRegisterBodyWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         height: double.infinity,
         width: double.infinity,
-        color: GithubTheme.screenColor,
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -49,9 +48,9 @@ class GithubRegisterBodyWidget extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.white.withOpacity(.1),
+                    color: GithubTheme.secondColor.withOpacity(.1),
                     border: Border.all(
-                      color: Colors.white.withOpacity(.5),
+                      color: GithubTheme.secondColor.withOpacity(.5),
                       width: 1,
                     ),
                   ),
@@ -60,12 +59,20 @@ class GithubRegisterBodyWidget extends StatelessWidget {
                     controller: controller,
                     enabled: !isLoading,
                     maxLines: 1,
-                    style: const TextStyle(color: Colors.white),
+                    style: GithubTheme.simpleStyleText,
                     decoration: InputDecoration(
                       hintText: textField,
-                      hintStyle: const TextStyle(color: Colors.white),
+                      hintStyle: const TextStyle(
+                        fontFamily: GithubTheme.fontFamilyName,
+                        package: GithubTheme.themeName,
+                        color: GithubTheme.secondColor,
+                      ),
                       errorText: textError,
-                      errorStyle: const TextStyle(color: Colors.white),
+                      errorStyle: const TextStyle(
+                        fontFamily: GithubTheme.fontFamilyName,
+                        package: GithubTheme.themeName,
+                        color: GithubTheme.secondColor,
+                      ),
                       border: InputBorder.none,
                     ),
                   ),

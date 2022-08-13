@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/github_theme.dart';
+
 class GithubTabsWidget extends StatelessWidget {
   final Widget tabRepositories;
   final Widget tabLanguages;
@@ -14,30 +16,39 @@ class GithubTabsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Column(children: [
-        SizedBox(
-          child: TabBar(
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.grey.shade600,
-            indicatorColor: Colors.black,
-            tabs: const [
-              Tab(text: 'Repositories'),
-              Tab(text: 'Languages'),
-            ],
+      child: Container(
+        decoration: BoxDecoration(
+          color: GithubTheme.secondColor.withOpacity(0.06),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
         ),
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TabBarView(
-              children: [
-                tabRepositories,
-                tabLanguages,
+        child: Column(children: [
+          SizedBox(
+            child: TabBar(
+              labelStyle: GithubTheme.simpleStyleText,
+              unselectedLabelColor: GithubTheme.secondColor.withOpacity(.4),
+              indicatorColor: GithubTheme.secondColor.withOpacity(0),
+              tabs: const [
+                Tab(text: 'My Repositories'),
+                Tab(text: 'Languages'),
               ],
             ),
           ),
-        ),
-      ]),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TabBarView(
+                children: [
+                  tabRepositories,
+                  tabLanguages,
+                ],
+              ),
+            ),
+          ),
+        ]),
+      ),
     );
   }
 }

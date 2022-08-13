@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../theme/github_theme.dart';
+
 class GithubIconWidget extends StatelessWidget {
   const GithubIconWidget({Key? key}) : super(key: key);
 
@@ -21,7 +23,9 @@ class GithubIconWidget extends StatelessWidget {
       const Text(
         "Github",
         style: TextStyle(
-          color: Colors.white,
+          fontFamily: GithubTheme.fontFamilyName,
+          package: GithubTheme.themeName,
+          color: GithubTheme.secondColor,
           fontSize: 40,
           fontWeight: FontWeight.bold,
         ),

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:github_commons/main.dart';
+import 'package:github_commons/shared/components/github_bar_widget.dart';
+
+import '../stores/github_store.dart';
 
 class GithubProfilePage extends StatefulWidget {
   const GithubProfilePage({Key? key}) : super(key: key);
@@ -8,12 +12,21 @@ class GithubProfilePage extends StatefulWidget {
 }
 
 class _GithubProfilePageState extends State<GithubProfilePage> {
+  final _store = Modular.get<GithubStore>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('TEST'),
-      ),
+      backgroundColor: Colors.transparent,
+      appBar: const GithubAppBarWidget(),
+      body: Observer(builder: (_) {
+        return GithubProfileBodyWidget(
+          openRepository: (value) => _store.openUrl(value),
+          profile: _store.profile,
+          lstLanguages: _store.lstLanguages,
+          lstRepositories: _store.lstRepositories,
+        );
+      }),
     );
   }
 }
