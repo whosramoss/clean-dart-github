@@ -1,12 +1,12 @@
 import 'dart:convert';
-
+import 'package:equatable/equatable.dart';
 import 'package:github_commons/module/domain/entities/github_repository_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'github_repository_model.g.dart';
 
 @JsonSerializable()
-class GithubRepositoryModel {
+class GithubRepositoryModel extends Equatable {
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
 
@@ -101,4 +101,20 @@ class GithubRepositoryModel {
       GithubRepositoryModel.fromJson(jsonDecode(json));
 
   String toJsonString() => jsonEncode(toJson());
+
+  @override
+  List<Object?> get props => [
+        id,
+        nodeId,
+        name,
+        fullName,
+        htmlUrl,
+        fork,
+        description,
+        createdAt,
+        updatedAt,
+        pushedAt,
+        topics,
+        language,
+      ];
 }

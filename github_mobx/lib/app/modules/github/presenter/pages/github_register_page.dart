@@ -23,7 +23,7 @@ class _GithubRegisterPageState extends State<GithubRegisterPage> {
           textError: _store.error?.errorMessage,
           isLoading: _store.isLoading,
           controller: _controller,
-          action: _store.getGithubData,
+          action: _store.setGithubData,
           changeText: _store.setUsername,
         );
       }),

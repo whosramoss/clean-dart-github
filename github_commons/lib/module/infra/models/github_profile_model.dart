@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../domain/entities/github_profile_entity.dart';
@@ -7,7 +8,7 @@ import '../../domain/entities/github_profile_entity.dart';
 part 'github_profile_model.g.dart';
 
 @JsonSerializable()
-class GithubProfileModel {
+class GithubProfileModel extends Equatable {
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
 
@@ -126,4 +127,24 @@ class GithubProfileModel {
       GithubProfileModel.fromJson(jsonDecode(json));
 
   String toJsonString() => jsonEncode(toJson());
+
+  @override
+  List<Object?> get props => [
+        id,
+        nodeId,
+        name,
+        company,
+        username,
+        avatarUrl,
+        blog,
+        location,
+        email,
+        bio,
+        twitterUsername,
+        publicRepos,
+        followers,
+        following,
+        createdAt,
+        updatedAt,
+      ];
 }

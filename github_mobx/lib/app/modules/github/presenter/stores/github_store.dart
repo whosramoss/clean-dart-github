@@ -20,8 +20,8 @@ abstract class GithubStoreBase with Store {
   );
 
   @observable
-  BaseError? _error;
-  BaseError? get error => _error;
+  GithubError? _error;
+  GithubError? get error => _error;
   bool get haveError => _error != null;
 
   @observable
@@ -45,30 +45,24 @@ abstract class GithubStoreBase with Store {
   List<GithubLanguageEntity> get lstLanguages => _lstLanguages;
 
   @action
-  void setLoading(bool value) => _isLoading = value;
-
-  @action
-  void setError(BaseError? value) => _error = value;
-
-  @action
   void setUsername(String value) => _username = value;
 
   @action
-  Future<void> getGithubData() async {
+  Future<void> setGithubData() async {
     try {
-      setError(null);
-      setLoading(true);
+      _error = null;
+      _isLoading = true;
 
       _profile = await _findProfile(username);
       _lstRepositories = await _findRepositories(username);
       _lstLanguages = _findStatsLanguage(lstRepositories);
 
       openProfilePage();
-    } on BaseError catch (error) {
+    } on GithubError catch (error) {
       debugPrint(error.toString());
-      setError(error);
+      _error = error;
     } finally {
-      setLoading(false);
+      _isLoading = false;
     }
   }
 

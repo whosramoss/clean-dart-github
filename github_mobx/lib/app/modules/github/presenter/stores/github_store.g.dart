@@ -13,13 +13,13 @@ mixin _$GithubStore on GithubStoreBase, Store {
       Atom(name: 'GithubStoreBase._error', context: context);
 
   @override
-  BaseError? get _error {
+  GithubError? get _error {
     _$_errorAtom.reportRead();
     return super._error;
   }
 
   @override
-  set _error(BaseError? value) {
+  set _error(GithubError? value) {
     _$_errorAtom.reportWrite(value, super._error, () {
       super._error = value;
     });
@@ -105,38 +105,16 @@ mixin _$GithubStore on GithubStoreBase, Store {
     });
   }
 
-  late final _$getGithubDataAsyncAction =
-      AsyncAction('GithubStoreBase.getGithubData', context: context);
+  late final _$setGithubDataAsyncAction =
+      AsyncAction('GithubStoreBase.setGithubData', context: context);
 
   @override
-  Future<void> getGithubData() {
-    return _$getGithubDataAsyncAction.run(() => super.getGithubData());
+  Future<void> setGithubData() {
+    return _$setGithubDataAsyncAction.run(() => super.setGithubData());
   }
 
   late final _$GithubStoreBaseActionController =
       ActionController(name: 'GithubStoreBase', context: context);
-
-  @override
-  void setLoading(bool value) {
-    final _$actionInfo = _$GithubStoreBaseActionController.startAction(
-        name: 'GithubStoreBase.setLoading');
-    try {
-      return super.setLoading(value);
-    } finally {
-      _$GithubStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void setError(BaseError? value) {
-    final _$actionInfo = _$GithubStoreBaseActionController.startAction(
-        name: 'GithubStoreBase.setError');
-    try {
-      return super.setError(value);
-    } finally {
-      _$GithubStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
 
   @override
   void setUsername(String value) {

@@ -34,7 +34,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/bg.jpeg
     - assets/icons/github_icon.svg
 
   fonts:

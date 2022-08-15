@@ -1,28 +1,18 @@
-import '../../../shared/utils/connection/base_error.dart';
+class GithubError {
+  final StackTrace? stackTrace;
+  final dynamic exception;
+  final String? label;
+  final String errorMessage;
+  final int statusCode;
 
-class GithubError extends BaseError {
   GithubError({
-    StackTrace? stackTrace,
-    dynamic exception,
-    required String label,
-    required String errorMessage,
-  }) : super(
-          stackTrace: stackTrace,
-          exception: exception,
-          label: 'GithubError-$label',
-          errorMessage: errorMessage,
-        );
-}
+    this.stackTrace,
+    this.exception,
+    this.label = 'GithubError',
+    required this.errorMessage,
+    required this.statusCode,
+  });
 
-class GithubDatasourceError extends GithubError {
-  GithubDatasourceError({
-    StackTrace? stackTrace,
-    dynamic exception,
-    String errorMessage = 'Error',
-  }) : super(
-          stackTrace: stackTrace,
-          exception: exception,
-          label: 'GithubDatasourceError',
-          errorMessage: errorMessage,
-        );
+  @override
+  String toString() => errorMessage;
 }

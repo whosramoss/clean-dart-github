@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:github_commons/module/domain/enums/github_type_list_enum.dart';
 import 'package:github_commons/shared/theme/github_theme.dart';
@@ -74,9 +72,9 @@ class GithubProfileBodyWidget extends StatelessWidget {
           case GithubTypeListEnum.statistics:
             final value = lst[index] as GithubLanguageEntity;
             return GithubItemWidget(
-              // icon: value.icon,
+              icon: value.icon,
               title: value.name,
-              subtitle: '${value.average}%, used in ${value.total} projects',
+              subtitle: '${value.average}, used in ${value.total} projects',
             );
         }
       },

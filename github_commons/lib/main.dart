@@ -31,12 +31,7 @@ export 'package:github_commons/shared/components/github_register_body_widget.dar
 // Utils
 export 'package:github_commons/shared/utils/url_open/url_open.dart';
 export 'package:github_commons/shared/utils/url_open/i_url_open.dart';
-export 'package:github_commons/shared/utils/connection/base_error.dart';
-export 'package:github_commons/shared/utils/connection/dio_http_connection.dart';
-
-// --------------------------------------------------------
-// --------------------------------------------------------
-// --------------------------------------------------------
+export 'package:github_commons/module/domain/errors/github_errors.dart';
 
 // Packages
 export 'package:json_annotation/json_annotation.dart';

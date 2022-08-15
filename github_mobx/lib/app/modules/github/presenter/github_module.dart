@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
 import 'package:github_mobx/app/shared/routes.dart';
 
@@ -10,7 +9,6 @@ class GithubModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => Dio()),
-    Bind.lazySingleton<IDioHttpConnection>((i) => DioHttpConnection(i())),
     Bind.lazySingleton<IGithubDatasource>((i) => GithubDatasource(i())),
     Bind.lazySingleton<IGithubRepository>((i) => GithubRepository(i())),
     Bind.lazySingleton<IFindRepositories>((i) => FindRepositories(i())),
@@ -29,7 +27,7 @@ class GithubModule extends Module {
     ),
     ChildRoute(
       Routes.profile,
-      transition: TransitionType.noTransition,
+      transition: TransitionType.fadeIn,
       child: (_, args) => const GithubProfilePage(),
     ),
   ];

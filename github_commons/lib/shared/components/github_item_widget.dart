@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../theme/github_theme.dart';
+import 'package:github_commons/main.dart';
 
 class GithubItemWidget extends StatelessWidget {
   final String title;
@@ -16,6 +15,10 @@ class GithubItemWidget extends StatelessWidget {
 
   Widget? _buildIcon() {
     if (icon == null) return null;
+
+    if (icon!.contains('.svg')) {
+      return SvgPicture.network(icon!, width: 50);
+    }
 
     return CircleAvatar(
       backgroundColor: Colors.transparent,

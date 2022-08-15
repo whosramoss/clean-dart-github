@@ -1,4 +1,6 @@
-class GithubLanguageEntity {
+import 'package:equatable/equatable.dart';
+
+class GithubLanguageEntity extends Equatable {
   final String name;
   final String icon;
   final String average;
@@ -10,8 +12,6 @@ class GithubLanguageEntity {
     this.average = '',
     this.total = 0,
   });
-
-  bool get isValid => name.isNotEmpty;
 
   GithubLanguageEntity copyWith(
       {String? name, String? icon, String? average, int? total}) {
@@ -26,4 +26,7 @@ class GithubLanguageEntity {
   @override
   String toString() =>
       'GithubLanguageEntity(name: $name, icon: $icon, average: $average, total: $total)';
+
+  @override
+  List<Object?> get props => [name, icon, average, total];
 }
