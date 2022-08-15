@@ -12,9 +12,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   github_commons:
     path: ../github_commons
-    # git:
-    #   url: git@github.com:whosramoss/github_commons.git
-    #   ref: main
 
 
 dev_dependencies:

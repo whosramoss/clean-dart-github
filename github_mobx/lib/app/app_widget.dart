@@ -13,7 +13,7 @@ class AppWidget extends StatelessWidget {
     ]);
 
     return MaterialApp.router(
-      title: 'Github',
+      title: 'Github Mobx',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       routeInformationParser: Modular.routeInformationParser,

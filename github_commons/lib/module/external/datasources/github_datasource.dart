@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import '../../../module/infra/models/github_repository_model.dart';
 import '../../../module/infra/models/github_profile_model.dart';
-import '../../../shared/utils/data/github_data_json.dart';
 import '../../infra/datasources/i_github_datasource.dart';
 
 class GithubDatasource implements IGithubDatasource {

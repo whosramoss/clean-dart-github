@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theme/github_theme.dart';
-
 class GithubAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
   const GithubAppBarWidget({Key? key}) : super(key: key);
@@ -9,10 +7,10 @@ class GithubAppBarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      title: const Text("My Profile", style: TextStyle(color: Colors.white)),
       elevation: 0,
-      shadowColor: null,
-      backgroundColor: GithubTheme.primaryColor,
-      leading: const BackButton(color: GithubTheme.secondColor),
+      backgroundColor: Colors.transparent,
+      leading: const BackButton(color: Colors.white),
     );
   }
 

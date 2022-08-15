@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
-import 'package:github_commons/shared/components/github_bar_widget.dart';
 
 import '../stores/github_store.dart';
 

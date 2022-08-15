@@ -254,6 +254,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
+  get:
+    dependency: transitive
+    description:
+      name: get
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.6.5"
   github_commons:
     dependency: "direct main"
     description:
