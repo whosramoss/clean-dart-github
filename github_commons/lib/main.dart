@@ -59,4 +59,9 @@ export 'package:get/get.dart'
         MultipartFile,
         DoubleExtension,
         CustomTransition,
-        FormData;
+        FormData,
+        Transition;
+
+// bloc
+export 'package:bloc/bloc.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
