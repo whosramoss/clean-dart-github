@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:github_commons/main.dart';
 import 'package:github_mobx/app/shared/routes.dart';
 
+import '../../../../shared/exports.dart';
+
 part 'github_store.g.dart';
 
 class GithubStore = GithubStoreBase with _$GithubStore;

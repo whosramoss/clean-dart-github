@@ -1,6 +1,7 @@
 import 'package:github_commons/main.dart';
 
 import '../controllers/github_controller.dart';
+import '../utils/exports.dart';
 
 class GithubBindings implements Bindings {
   @override

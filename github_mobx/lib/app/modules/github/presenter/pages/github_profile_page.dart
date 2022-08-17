@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
-
+import '../../../../shared/exports.dart';
 import '../stores/github_store.dart';
 
 class GithubProfilePage extends StatefulWidget {

@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:github_commons/main.dart';
 
-import '../utils/github_routes.dart';
+import '../utils/exports.dart';
+import '../utils/routes.dart';
 
 class GithubController extends GetxController {
   final IFindProfile _findProfile;
@@ -16,24 +17,23 @@ class GithubController extends GetxController {
     this._urlOpen,
   );
 
-  Observable<bool> isLoading = false.obs();
+  final isLoading = false.obs;
 
-  RxString username = ''.obs;
+  final username = ''.obs;
 
-  Rx<GithubProfileEntity> profile = const GithubProfileEntity().obs;
+  final profile = const GithubProfileEntity().obs;
 
-  RxList<GithubRepositoryEntity> lstRepositories =
-      <GithubRepositoryEntity>[].obs;
+  final lstRepositories = <GithubRepositoryEntity>[].obs;
 
-  RxList<GithubLanguageEntity> lstLanguages = <GithubLanguageEntity>[].obs;
+  final lstLanguages = <GithubLanguageEntity>[].obs;
 
-  Rx<GithubError?>? error = GithubError(errorMessage: '', statusCode: 0).obs;
+  var error = GithubError(errorMessage: '', statusCode: 0).obs;
 
   void setUsername(String value) => username.value = value;
 
   Future<void> setGithubData() async {
     try {
-      error?.value = GithubError(errorMessage: '', statusCode: 0);
+      error.value = GithubError(errorMessage: '', statusCode: 0);
       isLoading.value = true;
 
       profile.value = await _findProfile(username.value);
@@ -43,7 +43,7 @@ class GithubController extends GetxController {
       openProfilePage();
     } on GithubError catch (e) {
       debugPrint(error.toString());
-      error?.value = e;
+      error.value = e;
     } finally {
       isLoading.value = false;
     }

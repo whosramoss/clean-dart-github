@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:github_commons/main.dart';
-import 'package:github_getx/github/pages/github_profile_page.dart';
+import 'package:flutter/services.dart';
 
 import 'github/bindings/github_bindings.dart';
 import 'github/pages/github_register_page.dart';
-import 'github/utils/github_routes.dart';
+import 'github/pages/github_profile_page.dart';
+import 'github/utils/exports.dart';
+import 'github/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return GetMaterialApp(
       title: 'Github Getx',
       debugShowCheckedModeBanner: false,

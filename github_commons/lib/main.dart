@@ -12,10 +12,11 @@ export 'package:github_commons/module/external/datasources/github_datasource.dar
 export 'package:github_commons/module/infra/datasources/i_github_datasource.dart';
 
 // usecases
-export 'package:github_commons/module/domain/usecases/find_profile/i_find_profile.dart';
+
 export 'package:github_commons/module/domain/usecases/find_repositories/i_find_repositories.dart';
 export 'package:github_commons/module/domain/usecases/find_stats_language/i_find_stats_language.dart';
 export 'package:github_commons/module/domain/usecases/find_profile/find_profile.dart';
+export 'package:github_commons/module/domain/usecases/find_profile/i_find_profile.dart';
 export 'package:github_commons/module/domain/usecases/find_repositories/find_repositories.dart';
 export 'package:github_commons/module/domain/usecases/find_stats_language/find_stats_language.dart';
 
@@ -40,28 +41,4 @@ export 'package:dio/dio.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:flutter_svg/svg.dart';
 export 'package:equatable/equatable.dart';
-
-// modular
 export 'package:flutter_modular/flutter_modular.dart';
-
-// mobx
-export 'package:mobx/mobx.dart' hide Interceptors, Interceptor, StringExtension;
-export 'package:flutter_mobx/flutter_mobx.dart' hide version;
-
-// getx
-export 'package:get/get.dart'
-    hide
-        IntExtension,
-        BoolExtension,
-        RouterOutlet,
-        RouterOutletState,
-        Response,
-        MultipartFile,
-        DoubleExtension,
-        CustomTransition,
-        FormData,
-        Transition;
-
-// bloc
-export 'package:bloc/bloc.dart';
-export 'package:flutter_bloc/flutter_bloc.dart';

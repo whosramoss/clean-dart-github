@@ -16,14 +16,18 @@ class GithubItemWidget extends StatelessWidget {
   Widget? _buildIcon() {
     if (icon == null) return null;
 
-    if (icon!.contains('.svg')) {
-      return SvgPicture.network(icon!, width: 50);
-    }
+    try {
+      if (icon!.contains('.svg')) {
+        return SvgPicture.network(icon!, width: 50);
+      }
 
-    return CircleAvatar(
-      backgroundColor: Colors.transparent,
-      backgroundImage: NetworkImage(icon!),
-    );
+      return CircleAvatar(
+        backgroundColor: Colors.transparent,
+        backgroundImage: NetworkImage(icon!),
+      );
+    } catch (e) {
+      return null;
+    }
   }
 
   @override

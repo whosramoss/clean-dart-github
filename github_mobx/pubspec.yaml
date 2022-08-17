@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  mobx: 2.0.7+5
+  flutter_mobx: 2.0.6+1
   github_commons:
     path: ../github_commons
 

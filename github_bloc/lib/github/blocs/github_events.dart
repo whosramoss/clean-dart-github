@@ -26,7 +26,7 @@ class SetUsernameText extends GithubEvent {
   List<Object> get props => [username];
 
   @override
-  String toString() => 'GetUsernameText { username: $username }';
+  String toString() => 'SetUsernameText { username: $username }';
 }
 
 class OpenRepository extends GithubEvent {
