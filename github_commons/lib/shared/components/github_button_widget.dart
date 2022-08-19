@@ -23,6 +23,7 @@ class _GithubButtonWidgetState extends State<GithubButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(500),
         color: widget.onPressed != null

@@ -41,6 +41,7 @@ class GithubRegisterBodyWidget extends StatelessWidget {
                 const GithubIconWidget(),
                 const SizedBox(height: 20),
                 Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
                   padding: EdgeInsets.only(
                     left: 20,
                     right: 20,
