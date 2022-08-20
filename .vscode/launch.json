@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Github Bloc",
+            "cwd": "github_bloc",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Github Getx",
+            "cwd": "github_getx",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Github Mobx",
+            "cwd": "github_mobx",
+            "request": "launch",
+            "type": "dart"
+        },
+    ]
+}
