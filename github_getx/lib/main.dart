@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'github/bindings/github_bindings.dart';
-import 'github/pages/github_register_page.dart';
-import 'github/pages/github_profile_page.dart';
+import 'github/presenter/bindings/github_bindings.dart';
+import 'github/presenter/pages/github_register_page.dart';
+import 'github/presenter/pages/github_profile_page.dart';
 import 'github/utils/exports.dart';
 import 'github/utils/routes.dart';
 

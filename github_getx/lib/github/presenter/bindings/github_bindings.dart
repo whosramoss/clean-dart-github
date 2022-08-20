@@ -1,7 +1,7 @@
 import 'package:github_commons/main.dart';
 
 import '../controllers/github_controller.dart';
-import '../utils/exports.dart';
+import '../../utils/exports.dart';
 
 class GithubBindings implements Bindings {
   @override
@@ -22,7 +22,12 @@ class GithubBindings implements Bindings {
 
     // Controller
     Get.put<GithubController>(
-      GithubController(Get.find(), Get.find(), Get.find(), Get.find()),
+      GithubController(
+        Get.find(),
+        Get.find(),
+        Get.find(),
+        Get.find(),
+      ),
     );
   }
 }
