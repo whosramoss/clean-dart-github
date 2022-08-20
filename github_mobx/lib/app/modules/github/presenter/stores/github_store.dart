@@ -12,13 +12,13 @@ abstract class GithubStoreBase with Store {
   final IUrlOpen _urlOpen;
   final IFindProfile _findProfile;
   final IFindRepositories _findRepositories;
-  final IFindStatsLanguage _findStatsLanguage;
+  final IFindLanguages _findLanguages;
 
   GithubStoreBase(
     this._urlOpen,
     this._findProfile,
     this._findRepositories,
-    this._findStatsLanguage,
+    this._findLanguages,
   );
 
   @observable
@@ -57,7 +57,7 @@ abstract class GithubStoreBase with Store {
 
       _profile = await _findProfile(username);
       _lstRepositories = await _findRepositories(username);
-      _lstLanguages = _findStatsLanguage(lstRepositories);
+      _lstLanguages = _findLanguages(lstRepositories);
 
       openProfilePage();
     } on GithubError catch (error) {

@@ -7,13 +7,13 @@ import '../utils/routes.dart';
 class GithubController extends GetxController {
   final IFindProfile _findProfile;
   final IFindRepositories _findRepositories;
-  final IFindStatsLanguage _findStatsLanguage;
+  final IFindLanguages _findLanguages;
   final IUrlOpen _urlOpen;
 
   GithubController(
     this._findProfile,
     this._findRepositories,
-    this._findStatsLanguage,
+    this._findLanguages,
     this._urlOpen,
   );
 
@@ -38,7 +38,7 @@ class GithubController extends GetxController {
 
       profile.value = await _findProfile(username.value);
       lstRepositories.value = await _findRepositories(username.value);
-      lstLanguages.value = _findStatsLanguage(lstRepositories);
+      lstLanguages.value = _findLanguages(lstRepositories);
 
       openProfilePage();
     } on GithubError catch (e) {

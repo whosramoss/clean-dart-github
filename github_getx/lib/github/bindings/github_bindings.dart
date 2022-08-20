@@ -17,7 +17,7 @@ class GithubBindings implements Bindings {
     // Usecases
     Get.put<IFindProfile>(FindProfile(Get.find()));
     Get.put<IFindRepositories>(FindRepositories(Get.find()));
-    Get.put<IFindStatsLanguage>(FindStatsLanguage());
+    Get.put<IFindLanguages>(FindLanguages());
     Get.put<IUrlOpen>(UrlOpen());
 
     // Controller

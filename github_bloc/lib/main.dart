@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           GithubRepository(GithubDatasource(Dio())),
           FindProfile(GithubRepository(GithubDatasource(Dio()))),
           FindRepositories(GithubRepository(GithubDatasource(Dio()))),
-          FindStatsLanguage(),
+          FindLanguages(),
         );
       },
       child: MaterialApp(

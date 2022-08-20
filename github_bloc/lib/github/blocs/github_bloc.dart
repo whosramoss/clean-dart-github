@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
 import '../utils/exports.dart';
@@ -13,7 +11,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
   final GithubRepository repository;
   final FindProfile findProfile;
   final FindRepositories findRepositories;
-  final FindStatsLanguage findStatsLanguage;
+  final FindLanguages findLanguages;
 
   GithubBloc(
     this.urlOpen,
@@ -22,7 +20,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
     this.repository,
     this.findProfile,
     this.findRepositories,
-    this.findStatsLanguage,
+    this.findLanguages,
   ) : super(InitialState()) {
     on<GetGithubData>((event, emit) async {
       try {
@@ -31,11 +29,8 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
         final username = event.username;
 
         final profile = await findProfile(username);
-        log('profile getted');
         final lstRepositories = await findRepositories(username);
-        log('lstRepositories getted');
-        final lstLanguages = findStatsLanguage(lstRepositories);
-        log('lstLanguages getted');
+        final lstLanguages = findLanguages(lstRepositories);
 
         emit(SuccessState(
           profile: profile,
