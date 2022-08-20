@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
-import '../utils/exports.dart';
+import '../../../../shared/utils/exports.dart';
 import 'github_events.dart';
 import 'github_state.dart';
 

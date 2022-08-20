@@ -4,7 +4,7 @@ import 'package:github_commons/main.dart';
 import '../blocs/github_events.dart';
 import '../blocs/github_bloc.dart';
 import '../blocs/github_state.dart';
-import '../utils/exports.dart';
+import '../../../../shared/utils/exports.dart';
 
 class GithubProfilePage extends StatefulWidget {
   const GithubProfilePage({Key? key}) : super(key: key);
