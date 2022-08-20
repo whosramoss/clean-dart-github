@@ -78,4 +78,4 @@ dependencies:
 
 
 # 📁 Screen Flow
-![App](./assets/recording_app.gif)
+[App](./assets/recording_app.gif)
