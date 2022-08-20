@@ -1,6 +1,6 @@
-![](./assets/header_.png)
+![](./assets/header.png)
 
-# Flutter Github State Management
+# Clean Dart Github
 
 This project is a proof of concept to test the [Flutterando](https://github.com/Flutterando) Clean architecture proposal  ([Clean-Dart](https://github.com/Flutterando/Clean-Dart)) with different state managers handling data provided by the API of the Github using Flutter 3.
 
