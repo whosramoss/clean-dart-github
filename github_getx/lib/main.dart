@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:github_commons/main.dart';
 
-import 'github/presenter/bindings/github_bindings.dart';
-import 'github/presenter/pages/github_register_page.dart';
-import 'github/presenter/pages/github_profile_page.dart';
-import 'github/utils/exports.dart';
+import 'app/modules/github/presenter/bindings/github_bindings.dart';
+import 'app/modules/github/presenter/pages/github_profile_page.dart';
+import 'app/modules/github/presenter/pages/github_register_page.dart';
+import 'app/shared/utils/exports.dart';
 
 void main() {
   runApp(const MyApp());
