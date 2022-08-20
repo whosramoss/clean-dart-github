@@ -78,4 +78,5 @@ dependencies:
 
 
 # 📁 Screen Flow
-[App](./assets/recording_app.gif)
+ <img src="https://github.com/whosramoss/flutter-github-state-management/blob/master/assets/recording_app.gif"  alt="App"  width="200">
+
