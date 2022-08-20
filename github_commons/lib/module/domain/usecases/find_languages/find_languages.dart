@@ -1,8 +1,9 @@
 import 'package:github_commons/module/domain/entities/github_language_entity.dart';
 import 'package:github_commons/module/domain/entities/github_repository_entity.dart';
-import 'package:github_commons/module/domain/usecases/find_stats_language/i_find_stats_language.dart';
 
-class FindStatsLanguage implements IFindStatsLanguage {
+import 'i_find_languages.dart';
+
+class FindLanguages implements IFindLanguages {
   @override
   List<GithubLanguageEntity> call(List<GithubRepositoryEntity> repositories) {
     var languages = <String>[];
@@ -14,13 +15,13 @@ class FindStatsLanguage implements IFindStatsLanguage {
       hasLanguage ? languages.add(e.language) : reposWithoutLanguage++;
     }
 
-    final aux = languages;
+    final langs = languages;
     languages = languages.toSet().toList();
 
     for (var name in languages) {
       lst.add(GithubLanguageEntity(
         name: name,
-        total: _getTotal(aux, name),
+        total: _getTotal(langs, name),
         icon: _getIcon(hasLanguage: true, name: name.toLowerCase()),
         average: _getAverage(lst: repositories, name: name),
       ));

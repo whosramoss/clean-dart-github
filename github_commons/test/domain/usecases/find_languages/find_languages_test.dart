@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:github_commons/module/domain/entities/github_language_entity.dart';
 import 'package:github_commons/module/domain/entities/github_repository_entity.dart';
-import 'package:github_commons/module/domain/usecases/find_stats_language/find_stats_language.dart';
-import 'package:github_commons/module/domain/usecases/find_stats_language/i_find_stats_language.dart';
+import 'package:github_commons/module/domain/usecases/find_languages/find_languages.dart';
+import 'package:github_commons/module/domain/usecases/find_languages/i_find_languages.dart';
 
 void main() {
-  late IFindStatsLanguage findStatsLanguage;
+  late IFindLanguages findLanguages;
 
   const lstRepositoriesEntity = <GithubRepositoryEntity>[
     GithubRepositoryEntity(
@@ -55,16 +55,16 @@ void main() {
   ];
 
   setUpAll(() {
-    findStatsLanguage = FindStatsLanguage();
+    findLanguages = FindLanguages();
   });
 
-  group("[FindStatsLanguage]", () {
+  group("[FindLanguages]", () {
     test('All instances injected', () {
-      expect(findStatsLanguage, isA<IFindStatsLanguage>());
+      expect(findLanguages, isA<IFindLanguages>());
     });
 
     test('Return a List<GithubLanguageEntity>', () {
-      var result = findStatsLanguage(lstRepositoriesEntity);
+      var result = findLanguages(lstRepositoriesEntity);
 
       expect(result, isNotNull);
       expect(result, isA<List<GithubLanguageEntity>>());
