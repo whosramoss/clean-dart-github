@@ -33,6 +33,7 @@ export 'package:github_commons/shared/components/github_bar_widget.dart';
 export 'package:github_commons/shared/utils/url_open/url_open.dart';
 export 'package:github_commons/shared/utils/url_open/i_url_open.dart';
 export 'package:github_commons/module/domain/errors/github_errors.dart';
+export 'package:github_commons/shared/routes/github_routes.dart';
 
 // Packages
 export 'package:json_annotation/json_annotation.dart';

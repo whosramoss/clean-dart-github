@@ -1,5 +1,4 @@
 import 'package:github_commons/main.dart';
-import 'package:github_mobx/app/shared/routes.dart';
 
 import 'pages/github_register_page.dart';
 import 'pages/github_profile_page.dart';
@@ -26,7 +25,7 @@ class GithubModule extends Module {
       child: (_, args) => const GithubRegisterPage(),
     ),
     ChildRoute(
-      Routes.profile,
+      GithubRoutes.profile,
       transition: TransitionType.fadeIn,
       child: (_, args) => const GithubProfilePage(),
     ),

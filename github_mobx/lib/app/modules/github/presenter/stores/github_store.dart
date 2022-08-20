@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:github_commons/main.dart';
-import 'package:github_mobx/app/shared/routes.dart';
 
 import '../../../../shared/exports.dart';
 
@@ -73,6 +72,6 @@ abstract class GithubStoreBase with Store {
   }
 
   void openProfilePage() {
-    Modular.to.pushNamed(Routes.profile);
+    Modular.to.pushNamed(GithubRoutes.profile);
   }
 }

@@ -1,4 +1,12 @@
-const mockprofile = '''
+import 'dart:convert';
+
+class GithubDataTest {
+  GithubDataTest._();
+  static getProfile() => jsonDecode(mockprofile);
+
+  static getRepositories() => jsonDecode(mockrepositories);
+
+  static const mockprofile = '''
 {
     "login": "whosramoss",
     "id": 20142337,
@@ -35,7 +43,7 @@ const mockprofile = '''
 }
 ''';
 
-const mockrepositories = '''
+  static const mockrepositories = '''
 [
     {
         "id": 383940847,
@@ -2982,3 +2990,4 @@ const mockrepositories = '''
     }
 ]
 ''';
+}

@@ -6,7 +6,6 @@ import '../blocs/github_events.dart';
 import '../blocs/github_bloc.dart';
 import '../blocs/github_state.dart';
 import '../utils/exports.dart';
-import '../utils/routes.dart';
 
 class GithubRegisterPage extends StatefulWidget {
   const GithubRegisterPage({Key? key}) : super(key: key);
@@ -50,7 +49,7 @@ class GithubRegisterPageState extends State<GithubRegisterPage> {
             textController.clear();
             textError = '';
             SchedulerBinding.instance.addPostFrameCallback((_) {
-              Navigator.of(context).pushNamed(Routes.profile);
+              Navigator.of(context).pushNamed(GithubRoutes.profile);
             });
           }
 

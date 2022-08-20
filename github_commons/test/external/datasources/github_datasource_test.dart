@@ -30,7 +30,7 @@ void main() {
       const username = 'whosramoss';
       when(dio.get(any)).thenAnswer((_) async {
         return Response(
-          data: jsonDecode(mockprofile),
+          data: jsonDecode(GithubDataTest.mockprofile),
           requestOptions: RequestOptions(path: ''),
         );
       });
@@ -45,7 +45,7 @@ void main() {
       const username = 'whosramoss';
       when(dio.get(any)).thenAnswer((_) async {
         return Response(
-          data: jsonDecode(mockrepositories),
+          data: jsonDecode(GithubDataTest.mockrepositories),
           requestOptions: RequestOptions(path: ''),
         );
       });

@@ -6,7 +6,6 @@ import 'github/blocs/github_bloc.dart';
 import 'github/pages/github_profile_page.dart';
 import 'github/pages/github_register_page.dart';
 import 'github/utils/exports.dart';
-import 'github/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,8 +38,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
         routes: {
-          Routes.register: (_) => const GithubRegisterPage(),
-          Routes.profile: (_) => const GithubProfilePage(),
+          GithubRoutes.register: (_) => const GithubRegisterPage(),
+          GithubRoutes.profile: (_) => const GithubProfilePage(),
         },
       ),
     );

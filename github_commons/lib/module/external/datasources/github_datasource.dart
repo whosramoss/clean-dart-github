@@ -16,8 +16,8 @@ class GithubDatasource implements IGithubDatasource {
   @override
   Future<GithubProfileModel> findProfile(String username) async {
     var response = await _dio.get('users/$username');
-    dynamic data = response.data;
-    // dynamic data = jsonDecode(mockprofile);
+
+    dynamic data = response.data; // GithubDataTest.getProfile();
 
     return GithubProfileModel.fromJson(data);
   }
@@ -25,8 +25,9 @@ class GithubDatasource implements IGithubDatasource {
   @override
   Future<List<GithubRepositoryModel>> findRepositories(String username) async {
     var response = await _dio.get('users/$username/repos');
-    List<dynamic> data = response.data;
-    // List<dynamic> data = jsonDecode(mockrepositories);
+
+    List<dynamic> data = response.data; //GithubDataTest.getRepositories();
+
     return data.map((v) => GithubRepositoryModel.fromJson(v)).toList();
   }
 }
