@@ -8,7 +8,7 @@ part 'github_store.g.dart';
 class GithubStore = GithubStoreBase with _$GithubStore;
 
 abstract class GithubStoreBase with Store {
-  final IUrlOpen _urlOpen;
+  final UrlOpen _urlOpen;
   final IFindProfile _findProfile;
   final IFindRepositories _findRepositories;
   final IFindLanguages _findLanguages;
@@ -68,7 +68,7 @@ abstract class GithubStoreBase with Store {
   }
 
   Future<void> openUrl(String link) async {
-    await _urlOpen.launchUrl(link);
+    await _urlOpen.openUrl(link);
   }
 
   void openProfilePage() {

@@ -13,7 +13,7 @@ class GithubModule extends Module {
     Bind.lazySingleton<IFindRepositories>((i) => FindRepositories(i())),
     Bind.lazySingleton<IFindProfile>((i) => FindProfile(i())),
     Bind.lazySingleton<IFindLanguages>((i) => FindLanguages()),
-    Bind.lazySingleton<IUrlOpen>((i) => UrlOpen()),
+    Bind.lazySingleton((i) => UrlOpen()),
     Bind.lazySingleton((i) => GithubStore(i(), i(), i(), i())),
   ];
 

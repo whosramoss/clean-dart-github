@@ -7,7 +7,7 @@ class GithubController extends GetxController {
   final IFindProfile _findProfile;
   final IFindRepositories _findRepositories;
   final IFindLanguages _findLanguages;
-  final IUrlOpen _urlOpen;
+  final UrlOpen _urlOpen;
 
   GithubController(
     this._findProfile,
@@ -49,7 +49,7 @@ class GithubController extends GetxController {
   }
 
   Future<void> openUrl(String link) async {
-    await _urlOpen.launchUrl(link);
+    await _urlOpen.openUrl(link);
   }
 
   void openProfilePage() {

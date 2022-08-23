@@ -50,7 +50,7 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
 
     on<OpenRepository>((event, emit) async {
       final value = event.url;
-      await urlOpen.launchUrl(value);
+      await urlOpen.openUrl(value);
     });
   }
 }
