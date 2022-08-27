@@ -6,7 +6,7 @@ import '../blocs/github_events.dart';
 import '../blocs/github_bloc.dart';
 import '../blocs/github_state.dart';
 
-import '../../../../shared/utils/exports.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GithubRegisterPage extends StatefulWidget {
   const GithubRegisterPage({Key? key}) : super(key: key);

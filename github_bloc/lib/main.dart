@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:github_commons/main.dart';
 
-import 'app/modules/github/presenter/blocs/github_bloc.dart';
-import 'app/modules/github/presenter/pages/github_profile_page.dart';
-import 'app/modules/github/presenter/pages/github_register_page.dart';
-import 'app/shared/utils/exports.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'app/presenter/blocs/github_bloc.dart';
+import 'app/presenter/pages/github_profile_page.dart';
+import 'app/presenter/pages/github_register_page.dart';
 
 void main() {
   runApp(const MyApp());
