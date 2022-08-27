@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:github_commons/main.dart';
-import '../../../../shared/utils/exports.dart';
 import '../controllers/github_controller.dart';
+
+import 'package:get/state_manager.dart';
 
 class GithubProfilePage extends GetView<GithubController> {
   const GithubProfilePage({Key? key}) : super(key: key);

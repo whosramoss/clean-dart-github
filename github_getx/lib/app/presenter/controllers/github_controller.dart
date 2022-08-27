@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
+
 import 'package:github_commons/main.dart';
 
-import '../../../../shared/utils/exports.dart';
+import 'package:get/state_manager.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class GithubController extends GetxController {
   final IFindProfile _findProfile;
