@@ -44,28 +44,15 @@ class GithubProvider with ChangeNotifier {
 
   GithubProfileEntity _profile = const GithubProfileEntity();
   GithubProfileEntity get profile => _profile;
-  void setProfile(GithubProfileEntity value) {
-    _profile = value;
-    notifyListeners();
-  }
 
   List<GithubRepositoryEntity> _lstRepositories = <GithubRepositoryEntity>[];
   List<GithubRepositoryEntity> get lstRepositories => _lstRepositories;
-  void setLstRepositories(List<GithubRepositoryEntity> value) {
-    _lstRepositories = value;
-    notifyListeners();
-  }
 
   List<GithubLanguageEntity> _lstLanguages = <GithubLanguageEntity>[];
   List<GithubLanguageEntity> get lstLanguages => _lstLanguages;
-  void setLstLanguages(List<GithubLanguageEntity> value) {
-    _lstLanguages = value;
-    notifyListeners();
-  }
 
   Future<void> setGithubData() async {
     try {
-      debugPrint('provider');
       setError(null);
       setLoading(true);
 
