@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:github_commons/main.dart';
 
-import '../../../../shared/exports.dart';
+import 'package:mobx/mobx.dart';
 
 part 'github_store.g.dart';
 

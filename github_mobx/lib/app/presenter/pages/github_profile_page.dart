@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
-import '../../../../shared/exports.dart';
 import '../stores/github_store.dart';
+
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class GithubProfilePage extends StatefulWidget {
   const GithubProfilePage({Key? key}) : super(key: key);
