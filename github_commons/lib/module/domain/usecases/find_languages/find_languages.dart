@@ -1,6 +1,5 @@
 import 'package:github_commons/module/domain/entities/github_language_entity.dart';
 import 'package:github_commons/module/domain/entities/github_repository_entity.dart';
-
 import 'i_find_languages.dart';
 
 class FindLanguages implements IFindLanguages {
@@ -22,7 +21,7 @@ class FindLanguages implements IFindLanguages {
       lst.add(GithubLanguageEntity(
         name: name,
         total: _getTotal(langs, name),
-        icon: _getIcon(hasLanguage: true, name: name.toLowerCase()),
+        icon: _getIcon(name.toLowerCase()),
         average: _getAverage(lst: repositories, name: name),
       ));
     }
@@ -31,7 +30,6 @@ class FindLanguages implements IFindLanguages {
       lst.add(GithubLanguageEntity(
         name: 'Repos without lang (Forks)',
         total: reposWithoutLanguage,
-        icon: _getIcon(hasLanguage: false),
         average: _getAverage(hasLanguage: false, lst: repositories),
       ));
     }
@@ -39,30 +37,23 @@ class FindLanguages implements IFindLanguages {
     return lst;
   }
 
-  String _getIcon({required bool hasLanguage, String? name}) {
-    if (!hasLanguage) {
-      return 'https://www.cambridge.org/elt/blog/wp-content/uploads/2019/07/Crying-Face-Emoji.png';
-    }
+  String _getIcon(String name) =>
+      'https://raw.githubusercontent.com/devicons/devicon/master/icons/$name/$name-original.svg';
 
-    return 'https://raw.githubusercontent.com/devicons/devicon/master/icons/$name/$name-original.svg';
-  }
-
-  int _getTotal(List<String> lst, String name) {
-    return lst
-        .where((lName) => lName.toLowerCase() == name.toLowerCase())
-        .toList()
-        .length;
-  }
+  int _getTotal(List<String> lst, String name) => lst
+      .where((lName) => lName.toLowerCase() == name.toLowerCase())
+      .toList()
+      .length;
 
   String _getAverage({
     required List<GithubRepositoryEntity> lst,
     bool hasLanguage = true,
     String? name,
   }) {
-    var value = lst.where((i) {
-      return hasLanguage ? i.language == name : i.language.isEmpty;
-    });
+    var value = lst
+        .where((i) => hasLanguage ? i.language == name : i.language.isEmpty)
+        .length;
 
-    return '${((value.length / lst.length) * 100).toStringAsFixed(0)}%';
+    return '${((value / lst.length) * 100).toStringAsFixed(0)}%';
   }
 }
