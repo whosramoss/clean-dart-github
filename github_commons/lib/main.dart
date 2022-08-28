@@ -23,6 +23,7 @@ export 'package:github_commons/module/domain/usecases/find_languages/i_find_lang
 export 'package:github_commons/module/domain/entities/github_language_entity.dart';
 export 'package:github_commons/module/domain/entities/github_profile_entity.dart';
 export 'package:github_commons/module/domain/entities/github_repository_entity.dart';
+export 'package:github_commons/module/domain/entities/github_result_entity.dart';
 
 // components
 export 'package:github_commons/shared/components/github_profile_body_widget.dart';
