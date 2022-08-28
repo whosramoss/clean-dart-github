@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:github_commons/main.dart';
 
-import '../../domain/github_result_entity.dart';
 import '../stores/github_triple_store.dart';
 
 class GithubRegisterPage extends StatefulWidget {

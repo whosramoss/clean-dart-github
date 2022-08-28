@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:github_commons/main.dart';
 
-import '../../domain/github_result_entity.dart';
-
 import 'package:flutter_triple/flutter_triple.dart';
 
 class GithubTripleStore extends NotifierStore<GithubError, GithubResultEntity> {
