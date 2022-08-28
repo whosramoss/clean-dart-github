@@ -9,12 +9,6 @@ abstract class GithubInheritedAction {
 }
 
 class GithubAction implements GithubInheritedAction {
-  // late final Dio dio;
-  // late final UrlOpen _urlOpen;
-  // // late final IFindProfile _findProfile;
-  // late final IFindRepositories _findRepositories;
-  // late final IFindLanguages _findLanguages;
-
   @override
   Future<void> openRepostory(String value) async {
     final UrlOpen urlOpen = UrlOpen();
