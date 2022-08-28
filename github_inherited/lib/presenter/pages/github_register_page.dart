@@ -40,10 +40,6 @@ class GithubRegisterPageState extends State<GithubRegisterPage> {
         lstRepositories: lstRepositories,
         lstLanguages: lstLanguages,
       );
-      debugPrint(value.username.toString());
-      debugPrint(value.profile.toString());
-      debugPrint(value.lstRepositories.toString());
-      debugPrint(value.lstLanguages.toString());
 
       openProfilePage(value);
     } on GithubError catch (error) {
