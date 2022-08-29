@@ -1,6 +1,6 @@
 import 'package:github_commons/main.dart';
 
-import 'modules/github/presenter/github_module.dart';
+import 'presenter/github_module.dart';
 
 class AppModule extends Module {
   @override

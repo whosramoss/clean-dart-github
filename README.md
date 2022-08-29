@@ -13,9 +13,9 @@ Following the Clean Dart principles, we must separate our project into 4 layers:
 3. `Infrastructure` 
 4. `External`
  
-Highlighting that the `Presenter` layer is responsible for allocating _pages_, _widgets_, _state management_ and that 3 state managers (**_Mobx_**, **_Getx_** and **_Bloc_**) were selected for this POC, it becomes understandable to group `Domain`, `Infra`, `External` layers and their respective _unit tests_ in a single project and create a separate project for each state management approach 
+Highlighting that the `Presenter` layer is responsible for allocating _pages_, _widgets_ and _state management_ , it becomes understandable to group `Domain`, `Infra`, `External` layers and their respective _unit tests_ in a single project being exported as a dependency, so we can have multiple separate repositories with different state management approaches  using the same business logic and components.
 
-Still with a top-down view, it's possible to notice that as the components of each project will be the same, so we can allocate the widgets in `github_commons` as well.
+Still with a top-down view, it's possible to notice that as the components and assets (fonts, images) of each project will be the same, so we can allocate the widgets in `github_commons` as well.
 
 # 🚀 Github data
 The project works with the Github API through the requests:
@@ -37,6 +37,9 @@ These usecases are called in all projects in which they have their data handled 
 | `github_mobx`    | Presenter               | `Mobx` - Library for reactively managing the state of your applications. Use the power of observables, actions, and reactions to supercharge your Dart and Flutter apps. | [ mobx ]( https://pub.dev/packages/mobx ), [ flutter_mobx ]( https://pub.dev/packages/flutter_mobx ) |
 | `github_getx`    | Presenter               | `Getx` - Open screens/snackbars/dialogs without context, manage states and inject dependencies easily                                                                    | [get](https://pub.dev/packages/get)                                                                  |
 | `github_bloc`    | Presenter               | `Bloc` - A predictable state management library that helps implement the Business Logic Component design pattern.                                                        | [bloc](https://pub.dev/packages/bloc), [flutter_bloc](https://pub.dev/packages/bloc)                 |
+| `github_triple`    | Presenter               | `Triple` - an abstraction of the Segmented State Pattern that forces architectural barriers to individual reactivities.                                                        | [triple](https://pub.dev/packages/triple)                 |
+| `github_provider`    | Presenter               | `Provider` - A wrapper around InheritedWidget to make them easier to use and more reusable.                                                        | [provider](https://pub.dev/packages/provider)                 |
+| `github_inherited`    | Presenter               | `InheritedWidget` - Base class for widgets that efficiently propagate information down the tree.                                                        | [InheritedWidget class](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html)                 |
 | `github_commons` | Domain, Infra, External | None                                                                                                                                                                     | [dio](https://pub.dev/packages/dio), [flutter_svg](https://pub.dev/packages/flutter_svg), [equatable](https://pub.dev/packages/equatable), [url_launcher](https://pub.dev/packages/url_launcher), [json_annotation](https://pub.dev/packages/json_annotation), [flutter_modular](https://pub.dev/packages/flutter_modular)  |
 
 ![TopDownVision](./assets/top_down.png)
@@ -72,9 +75,11 @@ dependencies:
   get: 4.6.5
   bloc: 8.1.0
   flutter_bloc: 8.1.1
+  flutter_triple: ^1.2.7+4
+  provider: ^6.0.3
 ```
 
 
 # 📁 Screen Flow
- <img src="https://github.com/whosramoss/flutter-github-state-management/blob/master/assets/recording_app.gif"  alt="App"  width="200">
+ <img src="https://github.com/whosramoss/flutter-github-state-management/blob/master/assets/appvideo.gif"  alt="App"  width="200">
 

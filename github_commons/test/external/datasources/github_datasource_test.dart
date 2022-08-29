@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:github_commons/main.dart';
 import 'package:github_commons/module/infra/models/github_profile_model.dart';
 import 'package:github_commons/module/infra/models/github_repository_model.dart';
-import 'package:github_commons/shared/utils/data/github_data_json.dart';
+import 'package:github_commons/shared/utils/github_data_json.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 

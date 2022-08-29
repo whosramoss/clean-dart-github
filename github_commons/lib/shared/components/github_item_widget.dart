@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
 
+import '../utils/icon_loader.dart';
+
 class GithubItemWidget extends StatelessWidget {
   final String title;
   final String subtitle;
@@ -13,25 +15,12 @@ class GithubItemWidget extends StatelessWidget {
     this.icon,
   }) : super(key: key);
 
-  Widget? _buildIcon() {
-    if (icon == null) return null;
-
-    try {
-      if (icon!.contains('.svg')) {
-        return SvgPicture.network(icon!, width: 50);
-      }
-
-      return CircleAvatar(
-        backgroundColor: Colors.transparent,
-        backgroundImage: NetworkImage(icon!),
-      );
-    } catch (e) {
-      return null;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final leading =
+        icon != null && icon!.isNotEmpty ? IconLoader.getIcon(icon!) : null;
+    final text = subtitle.isEmpty ? 'Empty Description' : subtitle;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Container(
@@ -40,7 +29,7 @@ class GithubItemWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: ListTile(
-          leading: _buildIcon(),
+          leading: leading,
           title: Text(
             title,
             overflow: TextOverflow.ellipsis,
@@ -48,7 +37,7 @@ class GithubItemWidget extends StatelessWidget {
             style: GithubTheme.simpleStyleText.copyWith(fontSize: 14),
           ),
           subtitle: Text(
-            subtitle.isEmpty ? 'Empty Description' : subtitle,
+            text,
             overflow: TextOverflow.ellipsis,
             softWrap: false,
             style: GithubTheme.simpleStyleText.copyWith(
