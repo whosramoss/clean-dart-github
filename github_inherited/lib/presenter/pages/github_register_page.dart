@@ -12,15 +12,15 @@ class GithubRegisterPage extends StatefulWidget {
 }
 
 class GithubRegisterPageState extends State<GithubRegisterPage> {
-  var textController = TextEditingController();
+  TextEditingController textController = TextEditingController();
 
-  var textUsername = '';
+  String textUsername = '';
   void setUsername(String value) => setState(() => textUsername = value);
 
-  var isLoading = false;
+  bool isLoading = false;
   void setLoading(bool value) => setState(() => isLoading = value);
 
-  var textError = '';
+  String textError = '';
   void setErrorMessage(String value) => setState(() => textError = value);
 
   Future<void> setGithubData() async {

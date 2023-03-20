@@ -5,36 +5,33 @@ import 'package:flutter_triple/flutter_triple.dart';
 
 class GithubTripleStore extends NotifierStore<GithubError, GithubResultEntity> {
   final UrlOpen _urlOpen;
-  final IFindProfile _findProfile;
-  final IFindRepositories _findRepositories;
-  final IFindLanguages _findLanguages;
+  final IGetProfile _getProfile;
+  final IGetRepositories _getRepositories;
+  final IGetLanguages _getLanguages;
 
   GithubTripleStore(
     this._urlOpen,
-    this._findProfile,
-    this._findRepositories,
-    this._findLanguages,
-  ) : super(const GithubResultEntity());
+    this._getProfile,
+    this._getRepositories,
+    this._getLanguages,
+  ) : super(GithubResultEntity.empty);
 
   void setUsername(String value) {
-    update(GithubResultEntity(
+    GithubResultEntity result = GithubResultEntity.empty.copyWith(
       username: value,
-      profile: const GithubProfileEntity(),
-      lstRepositories: const [],
-      lstLanguages: const [],
-    ));
+    );
+    update(result);
   }
 
   Future<void> setGithubData() async {
     try {
-      setError(GithubError(errorMessage: '', statusCode: 0));
+      setError(GithubError.empty);
       setLoading(true);
 
-      final username = state.username;
-      final profile = await _findProfile(username);
-      final lstRepositories = await _findRepositories(username);
-      final lstLanguages = _findLanguages(lstRepositories);
-      final value = state.copyWith(
+      GithubProfileEntity profile = await _getProfile(state.username);
+      List<GithubRepositoryEntity> lstRepositories = await _getRepositories(state.username);
+      List<GithubLanguageEntity> lstLanguages = _getLanguages(lstRepositories);
+      GithubResultEntity value = state.copyWith(
         profile: profile,
         lstRepositories: lstRepositories,
         lstLanguages: lstLanguages,

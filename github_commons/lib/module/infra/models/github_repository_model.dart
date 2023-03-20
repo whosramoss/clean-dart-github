@@ -7,13 +7,13 @@ part 'github_repository_model.g.dart';
 
 @JsonSerializable()
 class GithubRepositoryModel extends Equatable {
-  @JsonKey(name: 'id', defaultValue: 0)
+  @JsonKey(defaultValue: 0)
   final int id;
 
   @JsonKey(name: 'node_id', defaultValue: '')
   final String nodeId;
 
-  @JsonKey(name: 'name', defaultValue: '')
+  @JsonKey(defaultValue: '')
   final String name;
 
   @JsonKey(name: 'full_name', defaultValue: '')
@@ -22,10 +22,10 @@ class GithubRepositoryModel extends Equatable {
   @JsonKey(name: 'html_url', defaultValue: '')
   final String htmlUrl;
 
-  @JsonKey(name: 'fork', defaultValue: false)
+  @JsonKey(defaultValue: false)
   final bool fork;
 
-  @JsonKey(name: 'description', defaultValue: '')
+  @JsonKey(defaultValue: '')
   final String description;
 
   @JsonKey(name: 'created_at', defaultValue: '')
@@ -37,7 +37,7 @@ class GithubRepositoryModel extends Equatable {
   @JsonKey(name: 'pushed_at', defaultValue: '')
   final String? pushedAt;
 
-  @JsonKey(name: 'language', defaultValue: '')
+  @JsonKey(defaultValue: '')
   final String language;
 
   @JsonKey(name: 'topics', defaultValue: [])
@@ -92,13 +92,11 @@ class GithubRepositoryModel extends Equatable {
     );
   }
 
-  factory GithubRepositoryModel.fromJson(Map<String, dynamic> json) =>
-      _$GithubRepositoryModelFromJson(json);
+  factory GithubRepositoryModel.fromJson(Map<String, dynamic> json) => _$GithubRepositoryModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$GithubRepositoryModelToJson(this);
 
-  factory GithubRepositoryModel.fromString(String json) =>
-      GithubRepositoryModel.fromJson(jsonDecode(json));
+  factory GithubRepositoryModel.fromString(String json) => GithubRepositoryModel.fromJson(jsonDecode(json));
 
   String toJsonString() => jsonEncode(toJson());
 

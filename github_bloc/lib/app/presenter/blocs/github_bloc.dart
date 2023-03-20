@@ -10,28 +10,26 @@ class GithubBloc extends Bloc<GithubEvent, GithubState> {
   final Dio dio;
   final GithubDatasource datasource;
   final GithubRepository repository;
-  final FindProfile findProfile;
-  final FindRepositories findRepositories;
-  final FindLanguages findLanguages;
+  final GetProfile getProfile;
+  final GetRepositories getRepositories;
+  final GetLanguages getLanguages;
 
   GithubBloc(
     this.urlOpen,
     this.dio,
     this.datasource,
     this.repository,
-    this.findProfile,
-    this.findRepositories,
-    this.findLanguages,
+    this.getProfile,
+    this.getRepositories,
+    this.getLanguages,
   ) : super(InitialState()) {
     on<GetGithubData>((event, emit) async {
       try {
         emit(LoadingState());
 
-        final username = event.username;
-
-        final profile = await findProfile(username);
-        final lstRepositories = await findRepositories(username);
-        final lstLanguages = findLanguages(lstRepositories);
+        final GithubProfileEntity profile = await getProfile(event.username);
+        final List<GithubRepositoryEntity> lstRepositories = await getRepositories(event.username);
+        final List<GithubLanguageEntity> lstLanguages = getLanguages(lstRepositories);
 
         emit(SuccessState(
           profile: profile,

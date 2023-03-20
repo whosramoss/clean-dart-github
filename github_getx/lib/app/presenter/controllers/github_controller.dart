@@ -1,20 +1,19 @@
-import 'package:flutter/foundation.dart';
-
+import 'package:flutter/material.dart';
 import 'package:github_commons/main.dart';
 
 import 'package:get/state_manager.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 class GithubController extends GetxController {
-  final IFindProfile _findProfile;
-  final IFindRepositories _findRepositories;
-  final IFindLanguages _findLanguages;
+  final IGetProfile _getProfile;
+  final IGetRepositories _getRepositories;
+  final IGetLanguages _getLanguages;
   final UrlOpen _urlOpen;
 
   GithubController(
-    this._findProfile,
-    this._findRepositories,
-    this._findLanguages,
+    this._getProfile,
+    this._getRepositories,
+    this._getLanguages,
     this._urlOpen,
   );
 
@@ -22,7 +21,7 @@ class GithubController extends GetxController {
 
   final username = ''.obs;
 
-  final profile = const GithubProfileEntity().obs;
+  final profile = GithubProfileEntity.empty.obs;
 
   final lstRepositories = <GithubRepositoryEntity>[].obs;
 
@@ -37,9 +36,9 @@ class GithubController extends GetxController {
       error.value = GithubError(errorMessage: '', statusCode: 0);
       isLoading.value = true;
 
-      profile.value = await _findProfile(username.value);
-      lstRepositories.value = await _findRepositories(username.value);
-      lstLanguages.value = _findLanguages(lstRepositories);
+      profile.value = await _getProfile(username.value);
+      lstRepositories.value = await _getRepositories(username.value);
+      lstLanguages.value = _getLanguages(lstRepositories);
 
       openProfilePage();
     } on GithubError catch (e) {

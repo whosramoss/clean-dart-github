@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:github_commons/module/domain/entities/github_language_entity.dart';
 import 'package:github_commons/module/domain/entities/github_repository_entity.dart';
-import 'package:github_commons/module/domain/usecases/find_languages/find_languages.dart';
-import 'package:github_commons/module/domain/usecases/find_languages/i_find_languages.dart';
+import 'package:github_commons/module/domain/usecases/get_languages/get_languages.dart';
+import 'package:github_commons/module/domain/usecases/get_languages/i_get_languages.dart';
 
 void main() {
-  late IFindLanguages findLanguages;
+  late IGetLanguages usecase;
 
   const lstRepositoriesEntity = <GithubRepositoryEntity>[
     GithubRepositoryEntity(
@@ -40,40 +40,36 @@ void main() {
   const resultEntity = <GithubLanguageEntity>[
     GithubLanguageEntity(
       name: 'Dart',
-      icon:
-          'https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg',
       average: '50%',
       total: 1,
     ),
     GithubLanguageEntity(
       name: 'Go',
-      icon:
-          'https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg',
+      icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg',
       average: '50%',
       total: 1,
     ),
   ];
 
   setUpAll(() {
-    findLanguages = FindLanguages();
+    usecase = GetLanguages();
   });
 
-  group("[FindLanguages]", () {
-    test('All instances injected', () {
-      expect(findLanguages, isA<IFindLanguages>());
-    });
+  test('All instances injected', () {
+    expect(usecase, isA<IGetLanguages>());
+  });
 
-    test('Return a List<GithubLanguageEntity>', () {
-      var result = findLanguages(lstRepositoriesEntity);
+  test('Return a List<GithubLanguageEntity>', () {
+    var result = usecase(lstRepositoriesEntity);
 
-      expect(result, isNotNull);
-      expect(result, isA<List<GithubLanguageEntity>>());
+    expect(result, isNotNull);
+    expect(result, isA<List<GithubLanguageEntity>>());
 
-      for (var i = 0; i < result.length; i++) {
-        if (i != (result.length - 1)) {
-          expect(result[i], equals(resultEntity[i]));
-        }
+    for (var i = 0; i < result.length; i++) {
+      if (i != (result.length - 1)) {
+        expect(result[i], equals(resultEntity[i]));
       }
-    });
+    }
   });
 }

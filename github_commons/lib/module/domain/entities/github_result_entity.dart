@@ -11,11 +11,18 @@ class GithubResultEntity extends Equatable {
   final List<GithubLanguageEntity> lstLanguages;
 
   const GithubResultEntity({
-    this.username = '',
-    this.profile = const GithubProfileEntity(),
-    this.lstRepositories = const <GithubRepositoryEntity>[],
-    this.lstLanguages = const <GithubLanguageEntity>[],
+    required this.username,
+    required this.profile,
+    required this.lstRepositories,
+    required this.lstLanguages,
   });
+
+  static GithubResultEntity get empty => GithubResultEntity(
+     username:'',
+    profile:GithubProfileEntity.empty,
+    lstRepositories:const [],
+    lstLanguages:const [],
+  );
 
   GithubResultEntity copyWith({
     String? username,

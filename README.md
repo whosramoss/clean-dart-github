@@ -25,9 +25,9 @@ The project works with the Github API through the requests:
 These 2 requests will be called in `Datasources (External Layer)` receiving data in Json format, being processed in the `Repository (Infra Layer)` now with Model format and converted to Entity format.
 
 As we already have the data available in entities, to allocate them to be worked in `Usecases (Domain Layer)`, therefore, 3 usecases were created:
-1. `FindProfile` - get data from the first request flow
-2. `FindRepositories` - get data from the second request flow
-3. `FindLaguages` - creates statistics with the programming languages used in repositories, by parameter it receives the repositories list fetched in usecase `FindRepositories`
+1. `GetProfile` - get data from the first request flow
+2. `GetRepositories` - get data from the second request flow
+3. `GetLaguages` - creates statistics with the programming languages used in repositories, by parameter it receives the repositories list fetched in usecase `GetRepositories`
 
 These usecases are called in all projects in which they have their data handled differently and uniquely by each state manager
 
@@ -53,31 +53,6 @@ To run this project on your own, do the following:
 - Open project `github_commons`  and run `flutter pub get` to install general dependencies.
 - Open the project that uses your preferred state manager and run `flutter pub get` to install specific dependencies.
 - Run the project using `flutter run` or debugging using your IDE's tools.
-
-# 📁 Versions
-```yaml
-# Flutter: 3.0.5 
-# Dart: 2.17.6 
-
-environment:
-  sdk: ">=2.17.6 <3.0.0"
-  
-dependencies:
-  cupertino_icons: ^1.0.2
-  dio: 4.0.6
-  flutter_svg: 1.1.2
-  equatable: 2.0.3
-  url_launcher: 6.1.2
-  json_annotation: 4.6.0
-  flutter_modular: 5.0.3
-  mobx: 2.0.7+5
-  flutter_mobx: 2.0.6+1
-  get: 4.6.5
-  bloc: 8.1.0
-  flutter_bloc: 8.1.1
-  flutter_triple: ^1.2.7+4
-  provider: ^6.0.3
-```
 
 
 # 📁 Screen Flow

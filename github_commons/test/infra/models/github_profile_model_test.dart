@@ -41,19 +41,17 @@ void main() {
     updatedAt: "2022-08-04T03:37:06Z",
   );
 
-  group("[GithubProfileModel]", () {
-    test('model to entity', () {
-      var entity = mockModel.toEntity();
+  test('model to entity', () {
+    var entity = mockModel.toEntity();
 
-      expect(entity, isA<GithubProfileEntity>());
-      expect(entity, equals(mockEntity));
-    });
+    expect(entity, isA<GithubProfileEntity>());
+    expect(entity, equals(mockEntity));
+  });
 
-    test('entity to model', () {
-      var model = GithubProfileModel.fromEntity(mockEntity);
+  test('entity to model', () {
+    var model = GithubProfileModel.fromEntity(mockEntity);
 
-      expect(model, isA<GithubProfileModel>());
-      expect(model, equals(mockModel));
-    });
+    expect(model, isA<GithubProfileModel>());
+    expect(model, equals(mockModel));
   });
 }

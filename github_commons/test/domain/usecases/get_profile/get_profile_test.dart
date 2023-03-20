@@ -1,18 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:github_commons/module/domain/entities/github_profile_entity.dart';
-import 'package:github_commons/module/domain/usecases/find_profile/find_profile.dart';
-import 'package:github_commons/module/domain/usecases/find_profile/i_find_profile.dart';
+import 'package:github_commons/module/domain/usecases/get_profile/get_profile.dart';
+import 'package:github_commons/module/domain/usecases/get_profile/i_get_profile.dart';
 import 'package:github_commons/module/infra/repositories/github_repository.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'find_profile_test.mocks.dart';
+import 'get_profile_test.mocks.dart';
 
 @GenerateMocks([GithubRepository])
 void main() {
   final repository = MockGithubRepository();
 
-  late IFindProfile findProfile;
+  late IGetProfile usecase;
 
   const entity = GithubProfileEntity(
     username: "whosramoss",
@@ -34,26 +34,24 @@ void main() {
   );
 
   setUpAll(() {
-    findProfile = FindProfile(repository);
+    usecase = GetProfile(repository);
   });
 
-  group("[FindProfile]", () {
-    test('All instances injected', () {
-      expect(repository, isA<MockGithubRepository>());
-      expect(findProfile, isA<IFindProfile>());
-    });
+  test('All instances injected', () {
+    expect(repository, isA<MockGithubRepository>());
+    expect(usecase, isA<IGetProfile>());
+  });
 
-    test('Return a GithubProfileEntity', () async {
-      const username = "whosramoss";
+  test('Return a GithubProfileEntity', () async {
+    const username = "whosramoss";
 
-      clearInteractions(repository);
+    clearInteractions(repository);
 
-      when(repository.findProfile(username)).thenAnswer((_) async => entity);
+    when(repository.getProfile(username)).thenAnswer((_) async => entity);
 
-      var result = await findProfile(username);
+    var result = await usecase(username);
 
-      expect(result, isNotNull);
-      expect(result, isA<GithubProfileEntity>());
-    });
+    expect(result, isNotNull);
+    expect(result, isA<GithubProfileEntity>());
   });
 }

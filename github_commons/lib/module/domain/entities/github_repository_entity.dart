@@ -15,19 +15,34 @@ class GithubRepositoryEntity extends Equatable {
   final String language;
 
   const GithubRepositoryEntity({
-    this.id = 0,
-    this.nodeId = '',
-    this.name = '',
-    this.fullName = '',
-    this.htmlUrl = '',
-    this.fork = false,
-    this.description = '',
+    required this.id,
+    required this.nodeId,
+    required this.name,
+    required this.fullName,
+    required this.htmlUrl,
+    required this.fork,
+    required this.description,
     this.createdAt,
     this.updatedAt,
     this.pushedAt,
-    this.topics = const <String>[],
-    this.language = '',
+    required this.topics,
+    required this.language,
   });
+
+  static GithubRepositoryEntity get empty => const GithubRepositoryEntity(
+        id: 0,
+        nodeId: '',
+        name: '',
+        fullName: '',
+        htmlUrl: '',
+        description: '',
+        fork: true,
+        createdAt: null,
+        updatedAt: null,
+        pushedAt: null,
+        topics: [],
+        language: '',
+      );
 
   GithubRepositoryEntity copyWith({
     int? id,

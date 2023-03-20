@@ -5,18 +5,18 @@ class GithubProvider with ChangeNotifier {
   final Dio dio;
   final GithubDatasource datasource;
   final GithubRepository repository;
-  final FindProfile findProfile;
-  final FindRepositories findRepositories;
-  final FindLanguages findLanguages;
+  final GetProfile getProfile;
+  final GetRepositories getRepositories;
+  final GetLanguages getLanguages;
   final UrlOpen urlOpen;
 
   GithubProvider(
     this.dio,
     this.datasource,
     this.repository,
-    this.findProfile,
-    this.findRepositories,
-    this.findLanguages,
+    this.getProfile,
+    this.getRepositories,
+    this.getLanguages,
     this.urlOpen,
   );
 
@@ -42,24 +42,22 @@ class GithubProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  GithubProfileEntity _profile = const GithubProfileEntity();
+  GithubProfileEntity _profile = GithubProfileEntity.empty;
   GithubProfileEntity get profile => _profile;
 
-  List<GithubRepositoryEntity> _lstRepositories = <GithubRepositoryEntity>[];
+  List<GithubRepositoryEntity> _lstRepositories = [];
   List<GithubRepositoryEntity> get lstRepositories => _lstRepositories;
 
-  List<GithubLanguageEntity> _lstLanguages = <GithubLanguageEntity>[];
+  List<GithubLanguageEntity> _lstLanguages = [];
   List<GithubLanguageEntity> get lstLanguages => _lstLanguages;
 
   Future<void> setGithubData() async {
     try {
       setError(null);
       setLoading(true);
-
-      _profile = await findProfile(username);
-      _lstRepositories = await findRepositories(username);
-      _lstLanguages = findLanguages(lstRepositories);
-
+      _profile = await getProfile(username);
+      _lstRepositories = await getRepositories(username);
+      _lstLanguages = getLanguages(lstRepositories);
       notifyListeners();
     } on GithubError catch (error) {
       debugPrint(error.toString());

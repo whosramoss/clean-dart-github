@@ -10,9 +10,9 @@ class GithubTripleModule extends Module {
     Bind.lazySingleton((i) => Dio()),
     Bind.lazySingleton<IGithubDatasource>((i) => GithubDatasource(i())),
     Bind.lazySingleton<IGithubRepository>((i) => GithubRepository(i())),
-    Bind.lazySingleton<IFindRepositories>((i) => FindRepositories(i())),
-    Bind.lazySingleton<IFindProfile>((i) => FindProfile(i())),
-    Bind.lazySingleton<IFindLanguages>((i) => FindLanguages()),
+    Bind.lazySingleton<IGetRepositories>((i) => GetRepositories(i())),
+    Bind.lazySingleton<IGetProfile>((i) => GetProfile(i())),
+    Bind.lazySingleton<IGetLanguages>((i) => GetLanguages()),
     Bind.lazySingleton((i) => UrlOpen()),
     Bind.lazySingleton((i) => GithubTripleStore(i(), i(), i(), i())),
   ];

@@ -20,40 +20,38 @@ void main() {
     datasource = GithubDatasource(dio);
   });
 
-  group("[GithubDatasource]", () {
-    test('All instances injected', () {
-      expect(dio, isA<MockDio>());
-      expect(datasource, isA<GithubDatasource>());
+  test('All instances injected', () {
+    expect(dio, isA<MockDio>());
+    expect(datasource, isA<GithubDatasource>());
+  });
+
+  test('Return a GithubProfileModel', () async {
+    const username = 'whosramoss';
+    when(dio.get(any)).thenAnswer((_) async {
+      return Response(
+        data: jsonDecode(GithubDataTest.mockprofile),
+        requestOptions: RequestOptions(path: ''),
+      );
     });
 
-    test('[FindProfile] Return a GithubProfileModel', () async {
-      const username = 'whosramoss';
-      when(dio.get(any)).thenAnswer((_) async {
-        return Response(
-          data: jsonDecode(GithubDataTest.mockprofile),
-          requestOptions: RequestOptions(path: ''),
-        );
-      });
+    var result = await datasource.getProfile(username);
 
-      var result = await datasource.findProfile(username);
+    expect(result, isNotNull);
+    expect(result, isA<GithubProfileModel>());
+  });
 
-      expect(result, isNotNull);
-      expect(result, isA<GithubProfileModel>());
+  test(' Return a List<GithubRepositoryModel>', () async {
+    const username = 'whosramoss';
+    when(dio.get(any)).thenAnswer((_) async {
+      return Response(
+        data: jsonDecode(GithubDataTest.mockrepositories),
+        requestOptions: RequestOptions(path: ''),
+      );
     });
 
-    test('[FindRepositories] Return a List<GithubRepositoryModel>', () async {
-      const username = 'whosramoss';
-      when(dio.get(any)).thenAnswer((_) async {
-        return Response(
-          data: jsonDecode(GithubDataTest.mockrepositories),
-          requestOptions: RequestOptions(path: ''),
-        );
-      });
+    var result = await datasource.getRepositories(username);
 
-      var result = await datasource.findRepositories(username);
-
-      expect(result, isNotNull);
-      expect(result, isA<List<GithubRepositoryModel>>());
-    });
+    expect(result, isNotNull);
+    expect(result, isA<List<GithubRepositoryModel>>());
   });
 }

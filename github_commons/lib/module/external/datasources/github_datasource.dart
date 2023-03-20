@@ -7,14 +7,11 @@ class GithubDatasource implements IGithubDatasource {
   final Dio _dio;
 
   GithubDatasource(this._dio) {
-    _dio.options = BaseOptions(
-      baseUrl: 'https://api.github.com/',
-      receiveTimeout: const Duration(seconds: 30).inMilliseconds,
-    );
+    _dio.options = BaseOptions(baseUrl: 'https://api.github.com/');
   }
 
   @override
-  Future<GithubProfileModel> findProfile(String username) async {
+  Future<GithubProfileModel> getProfile(String username) async {
     var response = await _dio.get('users/$username');
 
     dynamic data = response.data; // GithubDataTest.getProfile();
@@ -23,7 +20,7 @@ class GithubDatasource implements IGithubDatasource {
   }
 
   @override
-  Future<List<GithubRepositoryModel>> findRepositories(String username) async {
+  Future<List<GithubRepositoryModel>> getRepositories(String username) async {
     var response = await _dio.get('users/$username/repos');
 
     List<dynamic> data = response.data; //GithubDataTest.getRepositories();
