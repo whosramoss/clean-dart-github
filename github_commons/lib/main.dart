@@ -12,12 +12,12 @@ export 'package:github_commons/module/external/datasources/github_datasource.dar
 export 'package:github_commons/module/infra/datasources/i_github_datasource.dart';
 
 // usecases
-export 'package:github_commons/module/domain/usecases/find_profile/find_profile.dart';
-export 'package:github_commons/module/domain/usecases/find_profile/i_find_profile.dart';
-export 'package:github_commons/module/domain/usecases/find_repositories/find_repositories.dart';
-export 'package:github_commons/module/domain/usecases/find_repositories/i_find_repositories.dart';
-export 'package:github_commons/module/domain/usecases/find_languages/find_languages.dart';
-export 'package:github_commons/module/domain/usecases/find_languages/i_find_languages.dart';
+export 'package:github_commons/module/domain/usecases/get_profile/get_profile.dart';
+export 'package:github_commons/module/domain/usecases/get_profile/i_get_profile.dart';
+export 'package:github_commons/module/domain/usecases/get_repositories/get_repositories.dart';
+export 'package:github_commons/module/domain/usecases/get_repositories/i_get_repositories.dart';
+export 'package:github_commons/module/domain/usecases/get_languages/get_languages.dart';
+export 'package:github_commons/module/domain/usecases/get_languages/i_get_languages.dart';
 
 // entities
 export 'package:github_commons/module/domain/entities/github_language_entity.dart';

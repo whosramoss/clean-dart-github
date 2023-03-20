@@ -79,54 +79,47 @@ void main() {
     expect(repository, isA<GithubRepository>());
   });
 
-  group('[GithubRepository]', () {
-    test('call FindProfile action', () async {
-      when(datasource.findProfile(username))
-          .thenAnswer((_) async => mockProfile);
+  test('call GetProfile action', () async {
+    when(datasource.getProfile(username)).thenAnswer((_) async => mockProfile);
 
-      await repository.findProfile(username);
+    await repository.getProfile(username);
 
-      verify(datasource.findProfile(username)).called(1);
-    });
+    verify(datasource.getProfile(username)).called(1);
+  });
 
-    test('check FindProfile action', () async {
-      when(datasource.findProfile(username))
-          .thenAnswer((_) async => mockProfile);
+  test('check GetProfile action', () async {
+    when(datasource.getProfile(username)).thenAnswer((_) async => mockProfile);
 
-      var result = await repository.findProfile(username);
+    var result = await repository.getProfile(username);
 
-      expect(result, isNotNull);
-      expect(result, isA<GithubProfileEntity>());
-    });
+    expect(result, isNotNull);
+    expect(result, isA<GithubProfileEntity>());
+  });
 
-    test('call FindRepositories action', () async {
-      when(datasource.findRepositories(username))
-          .thenAnswer((_) async => mocklstRepositories);
+  test('call GetRepositories action', () async {
+    when(datasource.getRepositories(username)).thenAnswer((_) async => mocklstRepositories);
 
-      await repository.findRepositories(username);
+    await repository.getRepositories(username);
 
-      verify(datasource.findRepositories(username)).called(1);
-    });
+    verify(datasource.getRepositories(username)).called(1);
+  });
 
-    test('check FindRepositories action', () async {
-      when(datasource.findRepositories(username))
-          .thenAnswer((_) async => mocklstRepositories);
+  test('check GetRepositories action', () async {
+    when(datasource.getRepositories(username)).thenAnswer((_) async => mocklstRepositories);
 
-      var result = await repository.findRepositories(username);
+    var result = await repository.getRepositories(username);
 
-      expect(result, isNotNull);
-      expect(result, isA<List<GithubRepositoryEntity>>());
-      expect(result.length, equals(2));
-    });
+    expect(result, isNotNull);
+    expect(result, isA<List<GithubRepositoryEntity>>());
+    expect(result.length, equals(2));
+  });
 
-    test('Return GithubError error type', () {
-      when(datasource.findProfile(username))
-          .thenThrow(GithubError(errorMessage: '', statusCode: 0));
+  test('Return GithubError error type', () {
+    when(datasource.getProfile(username)).thenThrow(GithubError.empty);
 
-      expect(
-        () async => await datasource.findProfile(username),
-        throwsA(isA<GithubError>()),
-      );
-    });
+    expect(
+      () async => await datasource.getProfile(username),
+      throwsA(isA<GithubError>()),
+    );
   });
 }

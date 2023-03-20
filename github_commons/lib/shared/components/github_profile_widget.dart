@@ -60,8 +60,7 @@ class _GithubProfileWidgetState extends State<GithubProfileWidget> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 decoration: BoxDecoration(
                   color: GithubTheme.secondColor.withOpacity(0.06),
                   borderRadius: BorderRadius.circular(10),
@@ -69,12 +68,9 @@ class _GithubProfileWidgetState extends State<GithubProfileWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildStats(
-                        data: widget.profile.following, title: "Following"),
-                    _buildStats(
-                        data: widget.profile.followers, title: "Followers"),
-                    _buildStats(
-                        data: widget.totalRepositories, title: "Repositories"),
+                    _StatsWidget(data: widget.profile.following, title: "Following"),
+                    _StatsWidget(data: widget.profile.followers, title: "Followers"),
+                    _StatsWidget(data: widget.totalRepositories, title: "Repositories"),
                   ],
                 ),
               ),
@@ -85,8 +81,19 @@ class _GithubProfileWidgetState extends State<GithubProfileWidget> {
       ),
     );
   }
+}
 
-  Widget _buildStats({required int data, required String title}) {
+class _StatsWidget extends StatelessWidget {
+  final int data;
+  final String title;
+    const _StatsWidget({
+    Key? key,
+    required this.data,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Text(

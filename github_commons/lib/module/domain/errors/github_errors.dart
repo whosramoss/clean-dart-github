@@ -13,6 +13,8 @@ class GithubError {
     required this.statusCode,
   });
 
+  static GithubError get empty => GithubError(errorMessage: '', statusCode: 0);
+
   @override
   String toString() => errorMessage;
 }

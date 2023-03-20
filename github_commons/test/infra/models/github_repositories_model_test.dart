@@ -33,19 +33,17 @@ void main() {
     language: 'dart',
   );
 
-  group("[GithubRepositoryModel]", () {
-    test('model to entity', () {
-      var entity = mockModel.toEntity();
+  test('model to entity', () {
+    var entity = mockModel.toEntity();
 
-      expect(entity, isA<GithubRepositoryEntity>());
-      expect(entity, equals(mockEntity));
-    });
+    expect(entity, isA<GithubRepositoryEntity>());
+    expect(entity, equals(mockEntity));
+  });
 
-    test('entity to model', () {
-      var model = GithubRepositoryModel.fromEntity(mockEntity);
+  test('entity to model', () {
+    var model = GithubRepositoryModel.fromEntity(mockEntity);
 
-      expect(model, isA<GithubRepositoryModel>());
-      expect(model, equals(mockModel));
-    });
+    expect(model, isA<GithubRepositoryModel>());
+    expect(model, equals(mockModel));
   });
 }

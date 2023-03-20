@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
         Dio(),
         GithubDatasource(Dio()),
         GithubRepository(GithubDatasource(Dio())),
-        FindProfile(GithubRepository(GithubDatasource(Dio()))),
-        FindRepositories(GithubRepository(GithubDatasource(Dio()))),
-        FindLanguages(),
+        GetProfile(GithubRepository(GithubDatasource(Dio()))),
+        GetRepositories(GithubRepository(GithubDatasource(Dio()))),
+        GetLanguages(),
         UrlOpen(),
       ),
       child: MaterialApp(

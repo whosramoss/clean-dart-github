@@ -4,11 +4,12 @@ abstract class GithubInheritedAction {
   Future<void> openRepostory(String value);
   Future<GithubProfileEntity> getProfile(String username);
   Future<List<GithubRepositoryEntity>> getRepositories(String username);
-  List<GithubLanguageEntity> getLanguages(
-      List<GithubRepositoryEntity> repositories);
+  List<GithubLanguageEntity> getLanguages(List<GithubRepositoryEntity> repositories);
 }
 
 class GithubAction implements GithubInheritedAction {
+  IGithubRepository get instances => GithubRepository(GithubDatasource(Dio()));
+
   @override
   Future<void> openRepostory(String value) async {
     final UrlOpen urlOpen = UrlOpen();
@@ -17,21 +18,19 @@ class GithubAction implements GithubInheritedAction {
 
   @override
   Future<GithubProfileEntity> getProfile(String username) async {
-    final IFindProfile findProfile = FindProfile(instances);
-    return await findProfile(username);
+    final IGetProfile getProfile = GetProfile(instances);
+    return await getProfile(username);
   }
 
   @override
   Future<List<GithubRepositoryEntity>> getRepositories(String username) async {
-    final IFindRepositories findRepositories = FindRepositories(instances);
-    return await findRepositories(username);
+    final IGetRepositories getRepositories = GetRepositories(instances);
+    return await getRepositories(username);
   }
 
   @override
-  List<GithubLanguageEntity> getLanguages(
-      List<GithubRepositoryEntity> repositories) {
-    return FindLanguages().call(repositories);
+  List<GithubLanguageEntity> getLanguages(List<GithubRepositoryEntity> repositories) {
+    final IGetLanguages getLanguages = GetLanguages();
+    return getLanguages(repositories);
   }
-
-  get instances => GithubRepository(GithubDatasource(Dio()));
 }

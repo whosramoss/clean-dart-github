@@ -20,12 +20,12 @@ class _GithubProfilePageState extends State<GithubProfilePage> {
       backgroundColor: Colors.transparent,
       appBar: const GithubAppBarWidget(),
       body: GithubProfileBodyWidget(
-        openRepository: (value) {
-          action.openRepostory(value);
-        },
         profile: widget.result.profile,
         lstLanguages: widget.result.lstLanguages,
         lstRepositories: widget.result.lstRepositories,
+        openRepository: (value) {
+          action.openRepostory(value);
+        },
       ),
     );
   }

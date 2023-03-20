@@ -6,9 +6,9 @@ class GithubRepository implements IGithubRepository {
   GithubRepository(this._datasource);
 
   @override
-  Future<GithubProfileEntity> findProfile(String username) async {
+  Future<GithubProfileEntity> getProfile(String username) async {
     try {
-      var value = await _datasource.findProfile(username);
+      var value = await _datasource.getProfile(username);
       return value.toEntity();
     } catch (error, stacktrace) {
       throw _error(error, stacktrace);
@@ -16,9 +16,9 @@ class GithubRepository implements IGithubRepository {
   }
 
   @override
-  Future<List<GithubRepositoryEntity>> findRepositories(String username) async {
+  Future<List<GithubRepositoryEntity>> getRepositories(String username) async {
     try {
-      var value = await _datasource.findRepositories(username);
+      var value = await _datasource.getRepositories(username);
       return value.map((v) => v.toEntity()).toList();
     } catch (error, stacktrace) {
       throw _error(error, stacktrace);

@@ -16,14 +16,14 @@ class GithubRegisterPage extends StatefulWidget {
 }
 
 class GithubRegisterPageState extends State<GithubRegisterPage> {
-  var textController = TextEditingController();
-  var textUsername = '';
-  var textError = '';
-  var isLoading = false;
+  TextEditingController textController = TextEditingController();
+  String textUsername = '';
+  String textError = '';
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.select((GithubBloc i) => i);
+    final GithubBloc bloc = context.select((GithubBloc i) => i);
 
     return Scaffold(
       backgroundColor: Colors.transparent,

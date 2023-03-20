@@ -17,7 +17,7 @@ class GithubProfilePage extends StatefulWidget {
 class _GithubProfilePageState extends State<GithubProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final bloc = context.select((GithubBloc i) => i);
+    final GithubBloc bloc = context.select((GithubBloc i) => i);
 
     return Scaffold(
       backgroundColor: Colors.transparent,

@@ -5,26 +5,29 @@ class GithubTheme {
 
   static const String themeName = 'github_commons';
   static const String fontFamilyName = 'Product Sans';
-  static const Color primaryColor = Color(0xff323232);
-  static const Color secondColor = Color(0xfff6f6f6);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color primaryColor = Color(0xFF323232);
+  static const Color secondColor = Color(0xFFF6F6F6);
 
   static ThemeData theme = ThemeData(
-    fontFamily: 'Product Sans',
+    fontFamily: fontFamilyName,
     brightness: Brightness.light,
-    primarySwatch: createMaterialColor(secondColor),
-    backgroundColor: primaryColor,
     scaffoldBackgroundColor: secondColor,
     primaryIconTheme: const IconThemeData(color: secondColor),
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: createMaterialColor(secondColor),
+    ).copyWith(background: primaryColor),
   );
 
   static MaterialColor createMaterialColor(Color color) {
-    final hslColor = HSLColor.fromColor(color);
-    final lightness = hslColor.lightness;
-    const lowDivisor = 6;
-    const highDivisor = 5;
-    final lowStep = (1.0 - lightness) / lowDivisor;
-    final highStep = lightness / highDivisor;
-    var swatch = {
+    final HSLColor hslColor = HSLColor.fromColor(color);
+    final double lightness = hslColor.lightness;
+    const int lowDivisor = 6;
+    const int highDivisor = 5;
+    final double lowStep = (1.0 - lightness) / lowDivisor;
+    final double highStep = lightness / highDivisor;
+
+    return MaterialColor(color.value, {
       50: (hslColor.withLightness(lightness + (lowStep * 5))).toColor(),
       100: (hslColor.withLightness(lightness + (lowStep * 4))).toColor(),
       200: (hslColor.withLightness(lightness + (lowStep * 3))).toColor(),
@@ -35,9 +38,7 @@ class GithubTheme {
       700: (hslColor.withLightness(lightness - (highStep * 2))).toColor(),
       800: (hslColor.withLightness(lightness - (highStep * 3))).toColor(),
       900: (hslColor.withLightness(lightness - (highStep * 4))).toColor(),
-    };
-
-    return MaterialColor(color.value, swatch);
+    });
   }
 
   static const TextStyle simpleStyleText = TextStyle(

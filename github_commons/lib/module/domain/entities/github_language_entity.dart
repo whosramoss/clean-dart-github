@@ -7,14 +7,20 @@ class GithubLanguageEntity extends Equatable {
   final int total;
 
   const GithubLanguageEntity({
-    this.name = '',
-    this.icon = '',
-    this.average = '',
-    this.total = 0,
+    required this.name,
+    required this.icon,
+    required this.average,
+    required this.total,
   });
 
-  GithubLanguageEntity copyWith(
-      {String? name, String? icon, String? average, int? total}) {
+  static GithubLanguageEntity get empty => const GithubLanguageEntity(name: '', icon: '', average: '', total: 0);
+
+  GithubLanguageEntity copyWith({
+    String? name,
+    String? icon,
+    String? average,
+    int? total,
+  }) {
     return GithubLanguageEntity(
       name: name ?? this.name,
       icon: icon ?? this.icon,
@@ -24,8 +30,7 @@ class GithubLanguageEntity extends Equatable {
   }
 
   @override
-  String toString() =>
-      'GithubLanguageEntity(name: $name, icon: $icon, average: $average, total: $total)';
+  String toString() => 'GithubLanguageEntity(name: $name, icon: $icon, average: $average, total: $total)';
 
   @override
   List<Object?> get props => [name, icon, average, total];
