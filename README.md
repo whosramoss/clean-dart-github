@@ -1,10 +1,10 @@
 <a href="https://github.com/whosramoss/clean-dart-github">
   <img alt="thumbnail" src="./assets/thumbnail.png" />
-  <h1 align="center">clean-dart-github</h1>
+  <h1 align="center">Clean Dart Github</h1>
 </a>
 
 <p align="center">
-  Project implementing clean architecture consuming data from Github Api
+  Project implementing clean architecture consuming data from Github Api using Dart
 </p>
 
 <div align="center">
