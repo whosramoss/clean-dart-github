@@ -1,12 +1,54 @@
-![](./assets/image1.png)
+<a href="https://github.com/whosramoss/clean-dart-github">
+  <img alt="thumbnail" src="./assets/thumbnail.png" />
+  <h1 align="center">clean-dart-github</h1>
+</a>
 
-# Clean Dart Github
+<p align="center">
+  Project implementing clean architecture consuming data from Github Api
+</p>
 
+<div align="center">
+<img src="https://img.shields.io/badge/flutter-fff?style=for-the-badge&logo=flutter&logoColor=007acc" alt="flutter">
+<img src="https://img.shields.io/badge/dart-007acc?style=for-the-badge&logo=dart&logoColor=fff" alt="dart">
+<img src="https://img.shields.io/badge/mobx-242424?style=for-the-badge&logo=mobx&logoColor=007acc" alt="mobx">
+<img src="https://img.shields.io/badge/getx-242424?style=for-the-badge&logo=getx&logoColor=A95C68" alt="getx">
+<br/>
+<img src="https://img.shields.io/badge/provider-242424?style=for-the-badge&logo=provider" alt="provider">
+<img src="https://img.shields.io/badge/Inherited-242424?style=for-the-badge&logo=Inherited" alt="Inherited">
+<img src="https://img.shields.io/badge/triple-242424?style=for-the-badge&logo=triple" alt="triple">
+<img src="https://img.shields.io/badge/bloc-242424?style=for-the-badge&logo=bloc" alt="bloc">
+</div>
+<br/>
+<br/>
+
+## How to install
+
+```bash
+  # Clone the project
+  git clone https://github.com/whosramoss/clean-dart-github/
+
+  # Go to the github_commons directory
+  cd .\clean-dart-github\github_commons
+
+  # Install dependencies of github_commons
+  flutter pub get
+
+  # Open the project that uses a state manager (e.g.:github_mobx)
+  cd ..\github_mobx\
+
+# Install dependencies of state manager 
+  flutter pub get
+
+  # Run the project 
+  flutter run
+```
+
+# About the Project
 This project is a proof of concept to test the [Flutterando](https://github.com/Flutterando) Clean architecture proposal  ([Clean-Dart](https://github.com/Flutterando/Clean-Dart)) with different state managers handling data provided by the API of the Github using Flutter 3.
 
 Overrall, the architecture of the software must follow clear contexts of maintainability and scalability, that being said, it is extremely important to evaluate the architectural structure of the product even before the development, to result in a more versatile application whereupon it improves the ability of the developers to improve or fixing features in a short time.
 
-# 📁 Layers and Structs
+# About Clean Dart
 Following the Clean Dart principles, we must separate our project into 4 layers: 
 1. `Presenter`
 2. `Domain` 
@@ -17,7 +59,7 @@ Highlighting that the `Presenter` layer is responsible for allocating _pages_, _
 
 Still with a top-down view, it's possible to notice that as the components and assets (fonts, images) of each project will be the same, so we can allocate the widgets in `github_commons` as well.
 
-# 🚀 Github data
+# About Github API
 The project works with the Github API through the requests:
 1. `GET` => https://api.github.com/users/{username}
 2. `GET` => https://api.github.com/users/{username}/repos
@@ -31,7 +73,7 @@ As we already have the data available in entities, to allocate them to be worked
 
 These usecases are called in all projects in which they have their data handled differently and uniquely by each state manager
 
-# 📈 Analysis
+# Project Analysis
 | Project        | Layers                  | State Management                                                                                                                                                       | Packages                                                                                             |
 |----------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | `github_mobx`    | Presenter               | `Mobx` - Library for reactively managing the state of your applications. Use the power of observables, actions, and reactions to supercharge your Dart and Flutter apps. | [ mobx ]( https://pub.dev/packages/mobx ), [ flutter_mobx ]( https://pub.dev/packages/flutter_mobx ) |
@@ -42,19 +84,23 @@ These usecases are called in all projects in which they have their data handled 
 | `github_inherited`    | Presenter               | `InheritedWidget` - Base class for widgets that efficiently propagate information down the tree.                                                        | [InheritedWidget class](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html)                 |
 | `github_commons` | Domain, Infra, External | None                                                                                                                                                                     | [dio](https://pub.dev/packages/dio), [flutter_svg](https://pub.dev/packages/flutter_svg), [equatable](https://pub.dev/packages/equatable), [url_launcher](https://pub.dev/packages/url_launcher), [json_annotation](https://pub.dev/packages/json_annotation), [flutter_modular](https://pub.dev/packages/flutter_modular)  |
 
-![](./assets/image2.png)
+Flutter has many other state managers available with different approaches ([State Management Docs](https://docs.flutter.dev/development/data-and-backend/state-mgmt) | [List of state management approaches](https://docs.flutter.dev/development/data-and-backend/state-mgmt/options))
 
-- Flutter has many other state managers available with different approaches ([State Management Docs](https://docs.flutter.dev/development/data-and-backend/state-mgmt) | [List of state management approaches](https://docs.flutter.dev/development/data-and-backend/state-mgmt/options))
+<img alt="flow" src="./assets/flow.png" />
+
 ---
 
-## 📕 Installation
-To run this project on your own, do the following: 
-- Clone this project.
-- Open project `github_commons`  and run `flutter pub get` to install general dependencies.
-- Open the project that uses your preferred state manager and run `flutter pub get` to install specific dependencies.
-- Run the project using `flutter run` or debugging using your IDE's tools.
-
-
-# 📁 Screen Flow
+# Video
  <img src="https://github.com/whosramoss/flutter-github-state-management/blob/master/assets/appvideo.gif"  alt="App"  width="200">
 
+## Contributing 
+If you want to contribute to `clean-dart-github`, please make sure to review the [contribution guidelines](https://github.com/whosramoss/clean-dart-github/blob/master/CONTRIBUTING.md). This project makes use of [GitHub issues](https://github.com/whosramoss/clean-dart-github/issues) for
+tracking requests and bugs.
+
+## License 
+
+Apache-2.0 license [LICENSE](./LICENSE)
+
+## Author 
+
+Gabriel Ramos ([@whosramoss](https://github.com/whosramoss))
